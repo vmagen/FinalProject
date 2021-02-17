@@ -7,6 +7,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FCWineries from './FunctionalComponents/FCWineries';
 import { SafeAreaView } from 'react-native';
 import FCHeader from './FunctionalComponents/FCHeader';
+import FCGroups from './FunctionalComponents/FCGroups';
+import FCWineriesMain from './FunctionalComponents/FCWineriesAndWines';
+import FCWineriesCategories from './FunctionalComponents/FCWineriesCategories';
 
 function App() {
   const Tab = createMaterialBottomTabNavigator();
@@ -33,7 +36,7 @@ function App() {
             ),
           }}
         />
-        <Tab.Screen name="Groups" component={FCHomePage}
+        <Tab.Screen name="Groups" component={FCGroups}
           options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="group" color={color} size={26} />
@@ -47,14 +50,14 @@ function App() {
             ),
           }}
         />
-        <Tab.Screen name="Wines" component={FCHomePage}
+        <Tab.Screen name="Wines" component={FCWineriesMain}
           options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="access-point" color={color} size={26} />
             ),
           }}
         />
-        <Tab.Screen name="Events" component={FCHomePage}
+        <Tab.Screen name="Events" component={FCWineriesCategories}
           options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="group" color={color} size={26} />

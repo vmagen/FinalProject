@@ -3,7 +3,6 @@ import { Avatar, Text } from 'react-native-elements';
 import { View } from 'react-native';
 
 export default function FCAvatar() {
-   const [data, setData]= useState([]);
 
    return (
       <View style={{ alignItems: 'center' ,marginLeft:40, marginTop:20}}>

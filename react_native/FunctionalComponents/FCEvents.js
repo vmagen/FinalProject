@@ -1,7 +1,6 @@
 import React, { useState, useEffect, } from 'react';
 import { View, Image, Text, ActivityIndicator, ScrollView } from 'react-native';
 import styleSheet from '../Pages/PageStyle'
-import Moment from 'moment';
 import helpers  from '../helpers/helperFunctions';
 
 function FCEvents() {

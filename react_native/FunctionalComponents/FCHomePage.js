@@ -8,12 +8,14 @@ import FCEvents from './FCEvents';
 import FCHeader from './FCHeader'
 import { ScrollView } from 'react-native-gesture-handler'
 import headers from '../helpers/messages.json';
+import FCSearch from './FCSearch'
 
 export default function FCHomePage() {
   return (
     <ScrollView>
       <View style={styleSheet.container}>
         <FCHeader />
+        <FCSearch placeholder={headers.searchInArvino}/>
         <Divider />
         <Text h4 style={styleSheet.h4Text}>{headers.upcomingEvents}</Text>
         <FCEvents />
