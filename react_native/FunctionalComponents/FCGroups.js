@@ -5,6 +5,7 @@ import FCHeader from './FCHeader';
 import FCSearch from './FCSearch';
 import styleSheet from '../Pages/PageStyle';
 import messages from '../helpers/messages.json';
+import FCBubbles from './FCBubbles';
 
 const DATA = [
     {
@@ -38,11 +39,7 @@ const DATA = [
           <FCHeader/>
           <Text h2 style={styleSheet.h4Text}>{messages.groups}</Text>
           <FCSearch placeholder={messages.searchInGroups}/>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
+       <FCBubbles/>
       </SafeAreaView>
     );
   }
