@@ -1,6 +1,7 @@
 import React, { useState, useEffect, } from 'react';
-import {  View, Image,Text,  ActivityIndicator, ScrollView } from 'react-native';
-
+import { View, Image, Text, ActivityIndicator, ScrollView } from 'react-native';
+import styleSheet from '../Pages/PageStyle'
+import helpers from '../helpers/helperFunctions';
 
 function FCWines() {
   const [wines, setWines] = useState([]);
@@ -10,7 +11,7 @@ function FCWines() {
   }, []);
 
   function getWines() {
-    fetch('http://proj.ruppin.ac.il/bgroup15/prod/api/Wine',
+    fetch(helpers.getApi() + '/Wine',
       {
         method: 'GET',
         headers: new Headers({
@@ -32,21 +33,15 @@ function FCWines() {
   }
 
   return (
-    <View style={{ height: 160, marginTop: 20 }}>
     <ScrollView
       horizontal={true}
       pagingEnabled={true}
-      style={{
-        alignContent: 'center',
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: 'black',
-      }}>
+      style={styleSheet.scrollView}>
       {wines.map(item => (
-        <View style={{ alignItems: 'center', backgroundColor: '#fff', flex: 0.2 }} key={item.ID}>
+        <View style={{alignItems:'center',padding:10}} key={item.ID}>
           <Image
             source={{ uri: item.WineImg }}
-            style={{ width: 80, height: 80, margin: 15 }} />
+            style={styleSheet.wine} />
           <Text>{item.WineName}</Text>
           <View>
           </View>
@@ -55,7 +50,6 @@ function FCWines() {
       ))}
     </ScrollView>
 
-  </View>
   )
 }
 export default FCWines;
