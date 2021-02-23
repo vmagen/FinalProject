@@ -9,6 +9,14 @@ const helpers = {
   },
   ReturnHour: function (date) {
     return Moment(date).format('HH:mm');
+  },
+
+  ReturnRandomData:function (data){
+    let num = Math.floor(Math.random() * Math.floor(data.length));
+    return data[num];
+  },
+  ReturnRandomNumber:function (max){
+     return Math.floor(Math.random() * Math.floor(max));
   }
 }
 
