@@ -98,5 +98,11 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderTopLeftRadius:5,
     borderBottomLeftRadius: 5
+  },
+  button:{
+    backgroundColor:'#691A1A',
+    color:'white',
+    width: 100,
+    alignSelf:'center'
   }
 });
