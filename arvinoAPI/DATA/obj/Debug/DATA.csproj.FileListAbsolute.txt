@@ -1,0 +1,12 @@
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\DATA.dll.config
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\DATA.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\DATA.pdb
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\EntityFramework.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\EntityFramework.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\obj\Debug\DATA.csprojAssemblyReference.cache
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\obj\Debug\DATA.csproj.CoreCompileInputs.cache
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\obj\Debug\DATA.csproj.CopyComplete
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\obj\Debug\DATA.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\arvinoAPI\DATA\obj\Debug\DATA.pdb
