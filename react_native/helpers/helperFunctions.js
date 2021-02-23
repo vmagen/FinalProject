@@ -1,4 +1,5 @@
 import Moment from 'moment';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const helpers = {
   getApi: function () {
@@ -11,12 +12,21 @@ const helpers = {
     return Moment(date).format('HH:mm');
   },
 
-  ReturnRandomData:function (data){
+  ReturnRandomData: function (data) {
     let num = Math.floor(Math.random() * Math.floor(data.length));
     return data[num];
   },
-  ReturnRandomNumber:function (max){
-     return Math.floor(Math.random() * Math.floor(max));
+  ReturnRandomNumber: function (max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  },
+  async SaveToAsyncStorgae(value, storage_key) {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem(storage_key, jsonValue)
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+
   }
 }
 

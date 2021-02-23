@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
 import FCHomePage from './FunctionalComponents/FCHomePage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FCWineries from './FunctionalComponents/FCWineries';
-import { SafeAreaView } from 'react-native';
-import FCHeader from './FunctionalComponents/FCHeader';
 import FCGroups from './FunctionalComponents/FCGroups';
 import FCWineriesMain from './FunctionalComponents/FCWineriesAndWines';
-import FCWineriesCategories from './FunctionalComponents/FCWineriesCategories';
 import FCREgister from './FunctionalComponents/FCREgister';
 import FCEvents from './FunctionalComponents/FCEvents';
 

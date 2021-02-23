@@ -5,7 +5,7 @@ import { View } from 'react-native';
 export default function FCAvatar() {
 
    return (
-      <View style={{ alignItems: 'center' ,marginLeft:40, marginTop:20}}>
+      <View style={{ alignItems: 'center' ,marginLeft:50, marginTop:20}}>
          <Avatar
             rounded={true}
             size="medium"

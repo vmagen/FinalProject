@@ -19,7 +19,14 @@
      "carmel":"הכרמל והחוף",
      "yehuda":"יהודה",
      "negev":"נגב",
-     "createAccount":"צור חשבון"
+     "createAccount":"צור חשבון",
+     "insertName":"הזן שם",
+     "insertEmail":"הכנס אימייל",
+     "insertPassword":"הזן סיסמה",
+     "insertPasswordSecond":"הזן שוב סיסמה",
+     "alreadyHave":"יש לך כבר משתמש?",
+     "login":"כנס",
+     "continueWithFb":"המשך לרישום עם פייסבוק"
     }
   
   

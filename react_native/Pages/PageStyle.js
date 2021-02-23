@@ -5,6 +5,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff'
   },
+  iframe:{
+    display:'none'
+  },
   logo: {
     width: 150,
     height: 80,
@@ -27,7 +30,8 @@ export default StyleSheet.create({
   },
   halfRow: {
     flex: 0.5,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin:5
   },
   h4Text: {
     textAlign: 'right',
@@ -102,7 +106,10 @@ export default StyleSheet.create({
   button:{
     backgroundColor:'#691A1A',
     color:'white',
-    width: 100,
-    alignSelf:'center'
+  },
+  input:{
+    width: 250,
+    alignSelf: 'center',
+    textAlign:'right'
   }
 });
