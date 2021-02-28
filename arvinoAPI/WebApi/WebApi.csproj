@@ -173,6 +173,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WineryManagerController.cs" />
+    <Compile Include="DTO\AreaCategoryDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\WineryDTO.cs" />
     <Compile Include="DTO\WineryManagerDTO.cs" />
