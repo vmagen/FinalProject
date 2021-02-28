@@ -37,8 +37,24 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody] string value)
+        public IHttpActionResult Post([FromBody] UserDTO value)
         {
+            try
+            {
+                RV_User user = new RV_User()
+                {
+                    email = value.email,
+                    code = value.code,
+                    typeId = value.typeId
+                };
+                db.RV_User.Add(user);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // PUT api/<controller>/5
