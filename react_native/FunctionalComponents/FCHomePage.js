@@ -13,7 +13,7 @@ import FCSearch from './FCSearch'
 export default function FCHomePage() {
   return (
     <ScrollView>
-      <View style={styleSheet.container}>
+      <View style={{backgroundColor:'#fff'}}>
         <FCHeader />
         <FCSearch placeholder={headers.searchInArvino}/>
         <Divider />

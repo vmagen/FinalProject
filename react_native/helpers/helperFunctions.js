@@ -19,15 +19,28 @@ const helpers = {
   ReturnRandomNumber: function (max) {
     return Math.floor(Math.random() * Math.floor(max));
   },
-  async SaveToAsyncStorgae(value, storage_key) {
+
+  async SaveToAsyncStorgae(storage_key, value) {
     try {
       const jsonValue = JSON.stringify(value)
-      await AsyncStorage.setItem(storage_key, jsonValue)
+      await AsyncStorage.setItem(storage_key, jsonValue);
     } catch (e) {
       console.log("ERROR", e);
     }
+  },
 
+  GetFromAsyncStorgae(storage_key) {
+    try {
+      AsyncStorage.getItem(storage_key, (result) => {
+        console.log("GETASYNC", JSON.parse(result));
+        return result != null ? JSON.parse(result) : null;
+      })
+
+    } catch (e) {
+      console.log("ERROR", e);
+    }
   }
+
 }
 
 export default helpers;

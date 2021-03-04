@@ -1,12 +1,14 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet ,Dimensions} from 'react-native'
+
+
+const { height } = Dimensions.get("screen");
+let eventHeight=height*0.2;
+let wineryHeight=height *0.1;
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff'
-  },
-  iframe:{
-    display:'none'
   },
   logo: {
     width: 150,
@@ -40,13 +42,13 @@ export default StyleSheet.create({
   },
   event: {
     width: 140,
-    height: 100,
+    height: eventHeight,
     margin: 15
   },
   winery: {
     alignItems: 'center',
     width: 60,
-    height: 80,
+    height: wineryHeight,
     margin: 15,
     padding: 20
   },
@@ -111,5 +113,10 @@ export default StyleSheet.create({
     width: 250,
     alignSelf: 'center',
     textAlign:'right'
-  }
+  },
+  textInput: {
+    flex: 1,
+    paddingLeft: 10,
+    color: '#691A1A',
+},
 });
