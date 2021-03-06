@@ -17,20 +17,13 @@ namespace WebApi.Controllers
     {
         public static arvinoDbContext db = new arvinoDbContext();
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-
-
+        /// <summary>
+        /// http://localhost:54186/api/WineryManager
+        /// להוסיף קישוררררררררררררררררררררר
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
 
         // POST api/<controller>
         public IHttpActionResult Post([FromBody] WineryManagerDTO value)

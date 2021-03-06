@@ -4,15 +4,29 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using DATA.EF;
+using WebApi.Models;
+using WebApi.DTO;
+using System.Web.Http.Cors;
 
 namespace WebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AreaCategoryController : ApiController
     {
+        public static arvinoDbContext db = new arvinoDbContext();
+
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(AreaCategoryModel.GetAreaCategories(db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // GET api/<controller>/5

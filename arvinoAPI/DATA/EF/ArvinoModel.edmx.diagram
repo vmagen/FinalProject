@@ -4,39 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="205f3b13b2484abd8fe7bfa299d0f0e7" Name="Diagram1">
-        <EntityTypeShape EntityType="ArvinoModel.RV_Answers" Width="1.5" PointX="10.5" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_AppUser" Width="1.5" PointX="8.25" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_AreaCategory" Width="1.5" PointX="11.25" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_ChatRoom" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Comment" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Competition" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Event" Width="1.5" PointX="15.75" PointY="28" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_EventCategory" Width="1.5" PointX="13.5" PointY="25.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Group" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_KeyWords" Width="1.5" PointX="10.5" PointY="23" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Message" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_MessageInGroup" Width="1.5" PointX="13.5" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_NoteFromSystemManager" Width="1.5" PointX="10.5" PointY="26.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Question" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Rate" Width="1.5" PointX="13.5" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Service" Width="1.5" PointX="15.75" PointY="32.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_ServiceImage" Width="1.5" PointX="18" PointY="32.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_SignedUpToEvent" Width="1.5" PointX="16.5" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_User" Width="1.5" PointX="6" PointY="21.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_UserScore" Width="1.5" PointX="10.5" PointY="33.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_UserType" Width="1.5" PointX="3.75" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_UserWatchType" Width="1.5" PointX="10.5" PointY="36.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Wine" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_WineCategory" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Winery" Width="1.5" PointX="13.5" PointY="29" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_WineryImage" Width="1.5" PointX="15.75" PointY="35.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_WineryManager" Width="1.5" PointX="8.25" PointY="29.5" IsExpanded="true" />
+      <Diagram DiagramId="205f3b13b2484abd8fe7bfa299d0f0e7" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="ArvinoModel.RV_Answers" Width="1.5" PointX="4.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_AppUser" Width="1.5" PointX="6.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_AreaCategory" Width="1.5" PointX="0.5" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_ChatRoom" Width="1.5" PointX="2.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Comment" Width="1.5" PointX="8.875" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Competition" Width="1.5" PointX="11" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Event" Width="1.5" PointX="2.5" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_EventCategory" Width="1.5" PointX="4.5" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Group" Width="1.5" PointX="6.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_KeyWords" Width="1.5" PointX="8.625" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Message" Width="1.5" PointX="0.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_MessageInGroup" Width="1.5" PointX="6.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_NoteFromSystemManager" Width="1.5" PointX="4.375" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Question" Width="1.5" PointX="4.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Rate" Width="1.5" PointX="8.875" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Service" Width="1.5" PointX="0.5" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_ServiceImage" Width="1.5" PointX="0.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_SignedUpToEvent" Width="1.5" PointX="6.625" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_User" Width="1.5" PointX="4.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_UserScore" Width="1.5" PointX="4.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_UserType" Width="1.5" PointX="0.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_UserWatchType" Width="1.5" PointX="8.875" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Wine" Width="1.5" PointX="11" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_WineCategory" Width="1.5" PointX="12.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Winery" Width="1.5" PointX="2.375" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_WineryImage" Width="1.5" PointX="0.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_WineryManager" Width="1.5" PointX="2.5" PointY="25.125" IsExpanded="true" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Answer__email__01D345B0" ManuallyRouted="false" />
-        <AssociationConnector Association="ArvinoModel.FK__RV_Answer__quest__02C769E9" ManuallyRouted="false" />
+        <AssociationConnector Association="ArvinoModel.FK__RV_Answer__quest__02C769E9" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="ArvinoModel.FK__RV_AppUse__email__40058253" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Commen__respo__540C7B00" ManuallyRouted="false" />
-        <AssociationConnector Association="ArvinoModel.FK__RV_Messag__sende__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="ArvinoModel.FK__RV_Messag__sende__793DFFAF" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="ArvinoModel.FK__RV_Rate__ratedBy__4E53A1AA" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Signed__Signe__58D1301D" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Signed__UserE__57DD0BE4" ManuallyRouted="false" />
@@ -48,11 +50,13 @@
         <AssociationConnector Association="ArvinoModel.FK__RV_Event__catego__22751F6C" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Event__winery__236943A5" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Signed__event__56E8E7AB" ManuallyRouted="false" />
-        <AssociationConnector Association="ArvinoModel.FK__RV_Group__creato__690797E6" ManuallyRouted="false" />
+        <AssociationConnector Association="ArvinoModel.FK__RV_Group__creato__690797E6" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="ArvinoModel.FK__RV_KeyWor__group__6DCC4D03" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Messag__group__7849DB76" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Messag__sende__7A672E12" ManuallyRouted="false" />
-        <AssociationConnector Association="ArvinoModel.FK__RV_NoteFr__syste__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="ArvinoModel.FK__RV_NoteFr__syste__07C12930" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="ArvinoModel.FK__RV_NoteFr__targe__08B54D69" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" ManuallyRouted="false" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" ManuallyRouted="false" />

@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WineryController.cs" />
     <Compile Include="Controllers\WineryManagerController.cs" />
     <Compile Include="DTO\AreaCategoryDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

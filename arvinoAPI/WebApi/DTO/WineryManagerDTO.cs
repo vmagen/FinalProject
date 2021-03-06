@@ -8,9 +8,9 @@ namespace WebApi.DTO
 {
 	public class WineryManagerDTO
 	{
-		public string email;
 		public string firstName;
 		public string lastName;
 		public string phone;
+		public string email;
 	}
 }
