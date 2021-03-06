@@ -4,7 +4,7 @@ import styleSheet from '../Pages/PageStyle';
 import FCAvatar from './FCAvatar';
 import logo from '../assets/logoArvino.png';
 
-export default function FCHeader() {
+export default function FCHeader({navigation}) {
     return (
         <View style={styleSheet.row}>
             <View style={styleSheet.halfRow}>
