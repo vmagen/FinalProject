@@ -1,93 +1,108 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-    View,
-    Platform,
-    StyleSheet,
-    SafeAreaView
+  View,
+  StyleSheet,
+  SafeAreaView
 } from 'react-native';
 import styleSheet from '../Pages/PageStyle';
-import { Text } from 'react-native-elements';
+import { Text, Input, Button } from 'react-native-elements';
 import FCHeader from './FCHeader';
+import headers from '../helpers/messages.json';
+import helpers from '../helpers/helperFunctions';
+import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const FCLogin = ({ navigation }) => {
+const FCLogin = () => {
+  const navigation = useNavigation();
+  const [user, setUser] = React.useState({
+    email: '',
+    password: '',
+  });
 
-    return (
-        <SafeAreaView style={styleSheet.container}>
-            <FCHeader/>
-            <View >
-                <Text h4 style={styleSheet.h4Text}>כניסה</Text>
-            </View>
-        </SafeAreaView>
-    );
+  const goToHomePage = async () => {
+    const res = await fetch(helpers.getApi() + 'user/email?email=' + user.email);
+    const data = await res.json();
+    
+    if (data !== null) {
+      if (data.password == user.password) {
+        AsyncStorage.setItem('login', JSON.stringify(data));
+        navigation.navigate('Home');
+      }
+      else {
+        Alert.alert("incorrect password.")
+      }
+    }
+    else {
+      Alert.alert("user does not exists");
+    }
+  }
+
+  const handleEmailChange = (val) => {
+    if (val.trim().length >= 3 && val.includes('@')) {
+      setUser({
+        ...user,
+        email: val,
+        isValidEmail: true
+      })
+    }
+    else {
+      setUser({
+        ...user,
+        email: val,
+        isValidEmail: false
+      })
+    }
+  };
+
+  const handlePasswordChange = (val) => {
+    if (val.trim().length >= 4) {
+      setUser({
+        ...user,
+        password: val,
+        isValidPassword: true
+      })
+    }
+    else {
+      setUser({
+        ...user,
+        password: val,
+        isValidPassword: false
+      })
+    }
+  }
+
+
+  return (
+    <SafeAreaView style={styleSheet.container}>
+      <FCHeader />
+      <View >
+        <Text h4 style={styleSheet.h4Text}>כניסה</Text>
+      </View>
+      <View>
+        <Input
+          placeholder={headers.insertEmail}
+          rightIcon={{ type: 'font-awesome', name: 'user' }}
+          inputContainerStyle={StyleSheet.input}
+          onChangeText={value => { handleEmailChange(value) }}
+        />
+        <Input
+          placeholder={headers.insertPassword}
+          rightIcon={{ type: 'font-awesome', name: 'lock' }}
+          inputContainerStyle={StyleSheet.input}
+          onChangeText={value => { handlePasswordChange(value) }}
+        />
+        <Button
+          title={headers.login}
+          buttonStyle={[styleSheet.button, {
+            marginBottom: 30
+          }]}
+          onPress={goToHomePage}
+        />
+      </View>
+    </SafeAreaView>
+  );
 };
 
 export default FCLogin;
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff'
-    },
-    header: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        paddingHorizontal: 20,
-        paddingBottom: 50
-    },
-    footer: {
-        flex: 3,
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        paddingHorizontal: 20,
-        paddingVertical: 30
-    },
-    text_header: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 30
-    },
-    text_footer: {
-        color: '#05375a',
-        fontSize: 18
-    },
-    action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom: 5
-    },
-    actionError: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#FF0000',
-        paddingBottom: 5
-    },
-    textInput: {
-        flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
-        paddingLeft: 10,
-        color: '#05375a',
-    },
-    errorMsg: {
-        color: '#FF0000',
-        fontSize: 14,
-    },
-    button: {
-        alignItems: 'center',
-        marginTop: 50
-    },
-    signIn: {
-        width: '100%',
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10
-    },
-    textSign: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    }
-});

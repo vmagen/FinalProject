@@ -17,7 +17,7 @@ export default function FCREgister({  }) {
     email: '',
     password: '',
     confirmPassword: '',
-    picture: 'http://proj.ruppin.ac.il/bgroup15/prod/finalPics/avatar.jpg',
+    picture: 'https://proj.ruppin.ac.il/bgroup15/prod/finalPics/avatar.jpg',
     isEighteen: false, //over18
     isValidName: false, //name validation
     isValidEmail: false, //email validation
@@ -97,14 +97,14 @@ export default function FCREgister({  }) {
         //SaveToAsyncStorage
         await AsyncStorage.setItem('login', JSON.stringify(user))
           .then(() => console.log("user saved!", user));
-        navigation.push('Home');
-      }
+          navigation.navigate('Login', { screen: 'questionere' });
+
+      } //user exists
       else {
         console.log("isExists: ", user.isExists);
         //Alert message user exists
         Alert.alert("User Exists go to login");
-      navigation.navigate('Login', { screen: 'login' });
-
+        navigation.navigate('Login', { screen: 'login' });
       }
     }
     else {
@@ -114,27 +114,13 @@ export default function FCREgister({  }) {
 
   //http://localhost:64023/api/user/email?email=asaf@gmail.com
   const checkEmailExists = async () => {
-    await fetch(helpers.getApi() + '/user/email?email=' + user.email,
+    await fetch(helpers.getApi() + 'user/email?email=' + user.email,
       {
         method: 'GET',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json; charset=UTF-8',
         })
-      })
-      .then(res => {
-        if (res.ok) {
-          setUser({
-            ...user,
-            isExists: true
-          })
-        }
-        else {
-          setUser({
-            ...user,
-            isExists: false
-          })
-        }
       })
   }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect, } from 'react';
 import { View, Image, Text, ActivityIndicator, ScrollView } from 'react-native';
 import styleSheet from '../Pages/PageStyle'
 import helpers from '../helpers/helperFunctions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function FCWines() {
   const [wines, setWines] = useState([]);
@@ -20,7 +21,6 @@ function FCWines() {
         })
       })
       .then(res => {
-        <ActivityIndicator size="large" />
         return res.json();
       })
       .then(
@@ -38,13 +38,11 @@ function FCWines() {
       pagingEnabled={true}
       style={styleSheet.scrollView}>
       {wines.map(item => (
-        <View style={{alignItems:'center',padding:10}} key={item.ID}>
+        <View style={{ alignItems: 'center', padding: 10 }} key={item.ID}>
           <Image
             source={{ uri: item.WineImg }}
             style={styleSheet.wine} />
           <Text>{item.WineName}</Text>
-          <View>
-          </View>
         </View>
 
       ))}

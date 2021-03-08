@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const helpers = {
   getApi: function () {
-    return 'http://proj.ruppin.ac.il/bgroup15/prod/api/'
+    return 'https://proj.ruppin.ac.il/bgroup15/prod/api/'
   },
   ReturnDate: function (date) {
     return Moment(date).format('DD/MM/yyyy');
@@ -20,25 +20,25 @@ const helpers = {
     return Math.floor(Math.random() * Math.floor(max));
   },
 
-  async SaveToAsyncStorgae(storage_key, value) {
-    try {
-      const jsonValue = JSON.stringify(value)
-      await AsyncStorage.setItem(storage_key, jsonValue);
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  },
-
-  GetFromAsyncStorgae(storage_key) {
-    try {
-      AsyncStorage.getItem(storage_key, (result) => {
-        console.log("GETASYNC", JSON.parse(result));
-        return result != null ? JSON.parse(result) : null;
+  getData: function (apiName) {
+    fetch(helpers.getApi() + '/' + apiName,
+      {
+        method: 'GET',
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
       })
-
-    } catch (e) {
-      console.log("ERROR", e);
-    }
+      .then(res => {
+        return res.json();
+      })
+      .then(
+        (result) => {
+          setWines(result);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
   }
 
 }
