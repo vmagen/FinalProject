@@ -1,47 +1,56 @@
-import React from 'react'
-import { SafeAreaView, View, FlatList, StyleSheet, StatusBar }  from 'react-native';
-import {Text} from 'react-native-elements';
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView, ActivityIndicator, View, FlatList, StyleSheet, StatusBar } from 'react-native';
+import { Text } from 'react-native-elements';
 import FCHeader from './FCHeader';
 import FCSearch from './FCSearch';
 import styleSheet from '../Pages/PageStyle';
 import messages from '../helpers/messages.json';
 import FCBubbles from './FCBubbles';
+import helpers from '../helpers/helperFunctions';
 
-const DATA = [
-    {
-      id: '1',
-      title: 'First Item',
-    },
-    {
-      id: '2',
-      title: 'Second Item',
-    },
-    {
-      id: '3',
-      title: 'Third Item',
-    },
-  ];
+
+function FCGroups() {
+  const [groups, setGroups] = useState([]);
+  const [loaded, setloaded] = useState(false);
   
-  const Item = ({ title }) => (
-    <View style={styleSheet.item}>
-      <Text style={styleSheet.title}>{title}</Text>
-    </View>
-  );
-  
-  const FCGroups = () => {
-    
-    const renderItem = ({ item }) => (
-      <Item  title={item.title} />
-    );
-  
-    return (
-      <SafeAreaView style={styleSheet.container}>
-          <FCHeader/>
-          <Text h2 style={styleSheet.h4Text}>{messages.groups}</Text>
-          <FCSearch placeholder={messages.searchInGroups}/>
-       <FCBubbles/>
-      </SafeAreaView>
-    );
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
-  
-  export default FCGroups;
+
+  useEffect(() => {
+    getGroups();
+  }, [])
+
+  function getGroups() {
+    fetch(helpers.getApi() + 'groups',
+      {
+        method: 'GET',
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
+      })
+      .then(res => {
+        return res.json();
+      })
+      .then(
+        (result) => {
+          setGroups(result);
+          setloaded(true);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+  }
+
+  return (
+    <SafeAreaView style={styleSheet.container}>
+      <FCHeader />
+      <Text h2 style={styleSheet.h4Text}>{messages.groups}</Text>
+      <FCSearch placeholder={messages.searchInGroups} />
+      {loaded ? <FCBubbles myGroups={groups} /> : <ActivityIndicator size='large'/>}
+    </SafeAreaView>
+  );
+}
+
+export default FCGroups;

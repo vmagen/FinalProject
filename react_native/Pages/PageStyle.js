@@ -1,9 +1,9 @@
-import { StyleSheet ,Dimensions} from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 
 const { height } = Dimensions.get("screen");
-let eventHeight=height*0.2;
-let wineryHeight=height *0.1;
+let eventHeight = height * 0.2;
+let wineryHeight = height * 0.1;
 
 export default StyleSheet.create({
   container: {
@@ -18,11 +18,22 @@ export default StyleSheet.create({
   scrollView: {
     borderBottomColor: 'black',
     borderBottomWidth: 1,
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf:'center'
+    alignSelf: 'center'
 
   },
   rowEvents: {
@@ -33,7 +44,7 @@ export default StyleSheet.create({
   halfRow: {
     flex: 0.5,
     justifyContent: 'center',
-    margin:5
+    margin: 5
   },
   h4Text: {
     textAlign: 'right',
@@ -76,14 +87,14 @@ export default StyleSheet.create({
   inButtonActive: {
     textAlign: 'center',
     color: '#691A1A',
-    padding:10,
-    fontWeight:'bold'
+    padding: 10,
+    fontWeight: 'bold'
   },
   inButtonInActive: {
     textAlign: 'center',
     color: 'white',
-    padding:10,
-    fontWeight:'bold',
+    padding: 10,
+    fontWeight: 'bold',
   },
   toggleBoxActive: {
     width: 172,
@@ -92,31 +103,33 @@ export default StyleSheet.create({
     borderColor: '#691A1A',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderTopRightRadius:5,
+    borderTopRightRadius: 5,
     borderBottomRightRadius: 5
   },
-  toggleBoxInActive:{
+  toggleBoxInActive: {
     width: 172,
     height: 40,
     backgroundColor: 'white',
     borderColor: '#691A1A',
     borderStyle: 'solid',
     borderWidth: 1,
-    borderTopLeftRadius:5,
+    borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5
   },
-  button:{
-    backgroundColor:'#691A1A',
-    color:'white',
+  button: {
+    backgroundColor: '#691A1A',
+    color: 'white',
+    padding: 10,
+    margin: 15
   },
-  input:{
+  input: {
     width: 250,
     alignSelf: 'center',
-    textAlign:'right'
+    textAlign: 'right'
   },
   textInput: {
     flex: 1,
     paddingLeft: 10,
     color: '#691A1A',
-},
+  },
 });

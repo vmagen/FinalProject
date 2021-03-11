@@ -6,6 +6,9 @@ import FCREgister from '../FunctionalComponents/FCREgister';
 import FCWineriesAndWines from '../FunctionalComponents/FCWineriesAndWines';
 import FCEvents from '../FunctionalComponents/FCEvents';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FCCamera from '../FunctionalComponents/FCCamera';
+import FCQuestionere from '../FunctionalComponents/FCQuestionere';
+import FCSplashScreen from '../FunctionalComponents/FCSplashScreen';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -30,7 +33,7 @@ const  MaterialTabPage=()=> {
             ),
           }}
         />
-        <Tab.Screen name="Camera" component={FCREgister}
+        <Tab.Screen name="Camera" component={FCCamera}
           options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="camera" color={color} size={26} />

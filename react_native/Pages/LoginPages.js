@@ -4,6 +4,7 @@ import SignInScreen from '../FunctionalComponents/FCLogin';
 import SignUpScreen from '../FunctionalComponents/FCREgister';
 import FCProfile from '../FunctionalComponents/FCProfile';
 import FCLogin from '../FunctionalComponents/FCLogin';
+import FCQuestionere from '../FunctionalComponents/FCQuestionere';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ const Login = () => (
         <Stack.Screen name="login"  component={FCLogin}/>
         <Stack.Screen name="signup" component={SignUpScreen}/>
         <Stack.Screen name="profile" component={FCProfile}/>
+        <Stack.Screen name="questionere" component={FCQuestionere}/>
 
     </Stack.Navigator>
 );
