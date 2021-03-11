@@ -11,7 +11,7 @@ namespace WebApi.Models
     public class UserModel
     {
 
-        public static RV_User GetUser(string email, arvinoDbContext db)
+        public static RV_User GetUser(string email, ArvinoDbContext db)
         {
             return db.RV_User.SingleOrDefault(x => x.email == email);
         }

@@ -69,6 +69,7 @@
     <Property Name="eventImgPath" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="categoryId" Type="int" />
     <Property Name="wineryId" Type="int" />
+    <Property Name="ticketsPurchased" Type="int" />
   </EntityType>
   <EntityType Name="RV_EventCategory">
     <Key>
@@ -129,6 +130,18 @@
     <Property Name="systemManagerEmail" Type="varchar" MaxLength="50" />
     <Property Name="targetEmail" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="RV_PurchasedEventsByUsers">
+    <Key>
+      <PropertyRef Name="purchaseId" />
+    </Key>
+    <Property Name="purchaseId" Type="int" Nullable="false" />
+    <Property Name="ticketsPurchased" Type="int" Nullable="false" />
+    <Property Name="purchaseDate" Type="date" />
+    <Property Name="purchaseTime" Type="datetime" />
+    <Property Name="eventId" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
   <EntityType Name="RV_Question">
     <Key>
       <PropertyRef Name="questionId" />
@@ -170,17 +183,6 @@
     <Property Name="imgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ImgPath" Type="varchar(max)" Nullable="false" />
     <Property Name="serviceId" Type="int" />
-  </EntityType>
-  <EntityType Name="RV_SignedUpToEvent">
-    <Key>
-      <PropertyRef Name="eventId" />
-      <PropertyRef Name="UserEmail" />
-    </Key>
-    <Property Name="eventId" Type="int" Nullable="false" />
-    <Property Name="availablePlaces" Type="int" Nullable="false" />
-    <Property Name="UserEmail" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="SignedUpUserEmail" Type="varchar" MaxLength="50" />
-    <Property Name="rowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="RV_User">
     <Key>
@@ -481,6 +483,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__RV_Purcha__email__3DE82FB7">
+    <End Role="RV_User" Type="Self.RV_User" Multiplicity="0..1" />
+    <End Role="RV_PurchasedEventsByUsers" Type="Self.RV_PurchasedEventsByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_PurchasedEventsByUsers">
+        <PropertyRef Name="email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Purcha__event__3CF40B7E">
+    <End Role="RV_Event" Type="Self.RV_Event" Multiplicity="0..1" />
+    <End Role="RV_PurchasedEventsByUsers" Type="Self.RV_PurchasedEventsByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Event">
+        <PropertyRef Name="eventId" />
+      </Principal>
+      <Dependent Role="RV_PurchasedEventsByUsers">
+        <PropertyRef Name="eventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__RV_Rate__ratedBy__4E53A1AA">
     <End Role="RV_AppUser" Type="Self.RV_AppUser" Multiplicity="0..1" />
     <End Role="RV_Rate" Type="Self.RV_Rate" Multiplicity="*" />
@@ -530,42 +556,6 @@
       </Principal>
       <Dependent Role="RV_Service">
         <PropertyRef Name="wineryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RV_Signed__event__56E8E7AB">
-    <End Role="RV_Event" Type="Self.RV_Event" Multiplicity="1" />
-    <End Role="RV_SignedUpToEvent" Type="Self.RV_SignedUpToEvent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RV_Event">
-        <PropertyRef Name="eventId" />
-      </Principal>
-      <Dependent Role="RV_SignedUpToEvent">
-        <PropertyRef Name="eventId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RV_Signed__Signe__58D1301D">
-    <End Role="RV_AppUser" Type="Self.RV_AppUser" Multiplicity="0..1" />
-    <End Role="RV_SignedUpToEvent" Type="Self.RV_SignedUpToEvent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RV_AppUser">
-        <PropertyRef Name="email" />
-      </Principal>
-      <Dependent Role="RV_SignedUpToEvent">
-        <PropertyRef Name="SignedUpUserEmail" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RV_Signed__UserE__57DD0BE4">
-    <End Role="RV_AppUser" Type="Self.RV_AppUser" Multiplicity="1" />
-    <End Role="RV_SignedUpToEvent" Type="Self.RV_SignedUpToEvent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RV_AppUser">
-        <PropertyRef Name="email" />
-      </Principal>
-      <Dependent Role="RV_SignedUpToEvent">
-        <PropertyRef Name="UserEmail" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -741,11 +731,11 @@
     <EntitySet Name="RV_Message" EntityType="Self.RV_Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_MessageInGroup" EntityType="Self.RV_MessageInGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_NoteFromSystemManager" EntityType="Self.RV_NoteFromSystemManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RV_PurchasedEventsByUsers" EntityType="Self.RV_PurchasedEventsByUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Question" EntityType="Self.RV_Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Rate" EntityType="Self.RV_Rate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Service" EntityType="Self.RV_Service" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_ServiceImage" EntityType="Self.RV_ServiceImage" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RV_SignedUpToEvent" EntityType="Self.RV_SignedUpToEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_User" EntityType="Self.RV_User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserJoinChatRoom" EntityType="Self.RV_UserJoinChatRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserJoinGroup" EntityType="Self.RV_UserJoinGroup" Schema="dbo" store:Type="Tables" />
@@ -822,6 +812,14 @@
       <End Role="RV_WineryManager" EntitySet="RV_WineryManager" />
       <End Role="RV_NoteFromSystemManager" EntitySet="RV_NoteFromSystemManager" />
     </AssociationSet>
+    <AssociationSet Name="FK__RV_Purcha__email__3DE82FB7" Association="Self.FK__RV_Purcha__email__3DE82FB7">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_PurchasedEventsByUsers" EntitySet="RV_PurchasedEventsByUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Purcha__event__3CF40B7E" Association="Self.FK__RV_Purcha__event__3CF40B7E">
+      <End Role="RV_Event" EntitySet="RV_Event" />
+      <End Role="RV_PurchasedEventsByUsers" EntitySet="RV_PurchasedEventsByUsers" />
+    </AssociationSet>
     <AssociationSet Name="FK__RV_Rate__ratedBy__4E53A1AA" Association="Self.FK__RV_Rate__ratedBy__4E53A1AA">
       <End Role="RV_AppUser" EntitySet="RV_AppUser" />
       <End Role="RV_Rate" EntitySet="RV_Rate" />
@@ -837,18 +835,6 @@
     <AssociationSet Name="FK__RV_Servic__winer__282DF8C2" Association="Self.FK__RV_Servic__winer__282DF8C2">
       <End Role="RV_Winery" EntitySet="RV_Winery" />
       <End Role="RV_Service" EntitySet="RV_Service" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RV_Signed__event__56E8E7AB" Association="Self.FK__RV_Signed__event__56E8E7AB">
-      <End Role="RV_Event" EntitySet="RV_Event" />
-      <End Role="RV_SignedUpToEvent" EntitySet="RV_SignedUpToEvent" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RV_Signed__Signe__58D1301D" Association="Self.FK__RV_Signed__Signe__58D1301D">
-      <End Role="RV_AppUser" EntitySet="RV_AppUser" />
-      <End Role="RV_SignedUpToEvent" EntitySet="RV_SignedUpToEvent" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RV_Signed__UserE__57DD0BE4" Association="Self.FK__RV_Signed__UserE__57DD0BE4">
-      <End Role="RV_AppUser" EntitySet="RV_AppUser" />
-      <End Role="RV_SignedUpToEvent" EntitySet="RV_SignedUpToEvent" />
     </AssociationSet>
     <AssociationSet Name="FK__RV_User__typeId__68487DD7" Association="Self.FK__RV_User__typeId__68487DD7">
       <End Role="RV_UserType" EntitySet="RV_UserType" />

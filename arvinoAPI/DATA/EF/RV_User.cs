@@ -20,6 +20,7 @@ namespace DATA.EF
             this.RV_Group = new HashSet<RV_Group>();
             this.RV_Message = new HashSet<RV_Message>();
             this.RV_NoteFromSystemManager = new HashSet<RV_NoteFromSystemManager>();
+            this.RV_PurchasedEventsByUsers = new HashSet<RV_PurchasedEventsByUsers>();
             this.RV_ChatRoom = new HashSet<RV_ChatRoom>();
             this.RV_Group1 = new HashSet<RV_Group>();
         }
@@ -35,6 +36,8 @@ namespace DATA.EF
         public virtual ICollection<RV_Message> RV_Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_NoteFromSystemManager> RV_NoteFromSystemManager { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
         public virtual RV_UserType RV_UserType { get; set; }
         public virtual RV_WineryManager RV_WineryManager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

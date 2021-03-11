@@ -8,14 +8,16 @@ using DATA.EF;
 using WebApi.Models;
 using WebApi.DTO;
 using System.Web.Http.Cors;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 
 namespace WebApi.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
 
-        public static arvinoDbContext db = new arvinoDbContext();
+        public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
         /// http://localhost:54186/api/User/email?email=asaf@gmail.com
@@ -39,6 +41,7 @@ namespace WebApi.Controllers
         // POST api/<controller>
         public IHttpActionResult Post([FromBody] UserDTO value)
         {
+
             try
             {
                 RV_User user = new RV_User()
@@ -51,11 +54,25 @@ namespace WebApi.Controllers
                 db.SaveChanges();
                 return Ok();
             }
+            catch (DbEntityValidationException ex)
+            {
+                string error = "";
+                foreach (DbEntityValidationResult vr in ex.EntityValidationErrors)
+                {
+                    foreach (DbValidationError er in vr.ValidationErrors)
+                    {
+                        error += er.ErrorMessage + "\n";
+                    }
+                }
+                return Content(HttpStatusCode.BadRequest, error);
+            }
             catch (Exception ex)
             {
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
+
 
         // PUT api/<controller>/5
         public void Put(int id, [FromBody] string value)

@@ -19,7 +19,7 @@ namespace WebApi.Controllers
     public class WineryController : ApiController
     {
 
-        public static arvinoDbContext db = new arvinoDbContext();
+        public static ArvinoDbContext db = new ArvinoDbContext();
 
 
         /// <summary>
@@ -109,17 +109,6 @@ namespace WebApi.Controllers
 
         }
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/<controller>
         public void Post([FromBody] string value)

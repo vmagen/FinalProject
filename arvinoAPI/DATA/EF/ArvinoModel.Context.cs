@@ -13,10 +13,10 @@ namespace DATA.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class arvinoDbContext : DbContext
+    public partial class ArvinoDbContext : DbContext
     {
-        public arvinoDbContext()
-            : base("name=arvinoDbContext")
+        public ArvinoDbContext()
+            : base("name=ArvinoDbContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
@@ -39,11 +39,11 @@ namespace DATA.EF
         public virtual DbSet<RV_Message> RV_Message { get; set; }
         public virtual DbSet<RV_MessageInGroup> RV_MessageInGroup { get; set; }
         public virtual DbSet<RV_NoteFromSystemManager> RV_NoteFromSystemManager { get; set; }
+        public virtual DbSet<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
         public virtual DbSet<RV_Question> RV_Question { get; set; }
         public virtual DbSet<RV_Rate> RV_Rate { get; set; }
         public virtual DbSet<RV_Service> RV_Service { get; set; }
         public virtual DbSet<RV_ServiceImage> RV_ServiceImage { get; set; }
-        public virtual DbSet<RV_SignedUpToEvent> RV_SignedUpToEvent { get; set; }
         public virtual DbSet<RV_User> RV_User { get; set; }
         public virtual DbSet<RV_UserScore> RV_UserScore { get; set; }
         public virtual DbSet<RV_UserType> RV_UserType { get; set; }

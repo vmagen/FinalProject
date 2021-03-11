@@ -13,12 +13,6 @@ namespace WebApi.Models
 {
     public class WineryManagerModel
     {
-        public static List<RV_AreaCategory> GetAreas(arvinoDbContext db)
-        {
-            return db.RV_AreaCategory.Select(a => new RV_AreaCategory()
-            {
-                areaName = a.areaName
-            }).ToList();
-        }
+        
     }
 }
