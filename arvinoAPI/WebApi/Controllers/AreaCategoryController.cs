@@ -14,7 +14,7 @@ namespace WebApi.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AreaCategoryController : ApiController
     {
-        public static arvinoDbContext db = new arvinoDbContext();
+        public static ArvinoDbContext db = new ArvinoDbContext();
 
         // GET api/<controller>
         public IHttpActionResult Get()

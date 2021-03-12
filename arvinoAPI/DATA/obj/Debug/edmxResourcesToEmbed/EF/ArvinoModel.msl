@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ArvinoModelStoreContainer" CdmEntityContainer="arvinoDbContext">
+  <EntityContainerMapping StorageEntityContainer="ArvinoModelStoreContainer" CdmEntityContainer="ArvinoDbContext">
     <EntitySetMapping Name="RV_Answers">
       <EntityTypeMapping TypeName="ArvinoModel.RV_Answers">
         <MappingFragment StoreEntitySet="RV_Answers">
@@ -73,6 +73,7 @@
           <ScalarProperty Name="eventImgPath" ColumnName="eventImgPath" />
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+          <ScalarProperty Name="ticketsPurchased" ColumnName="ticketsPurchased" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -141,6 +142,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RV_PurchasedEventsByUsers">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_PurchasedEventsByUsers">
+        <MappingFragment StoreEntitySet="RV_PurchasedEventsByUsers">
+          <ScalarProperty Name="purchaseId" ColumnName="purchaseId" />
+          <ScalarProperty Name="ticketsPurchased" ColumnName="ticketsPurchased" />
+          <ScalarProperty Name="purchaseDate" ColumnName="purchaseDate" />
+          <ScalarProperty Name="purchaseTime" ColumnName="purchaseTime" />
+          <ScalarProperty Name="eventId" ColumnName="eventId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RV_Question">
       <EntityTypeMapping TypeName="ArvinoModel.RV_Question">
         <MappingFragment StoreEntitySet="RV_Question">
@@ -183,17 +197,6 @@
           <ScalarProperty Name="imgId" ColumnName="imgId" />
           <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
           <ScalarProperty Name="serviceId" ColumnName="serviceId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RV_SignedUpToEvent">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_SignedUpToEvent">
-        <MappingFragment StoreEntitySet="RV_SignedUpToEvent">
-          <ScalarProperty Name="eventId" ColumnName="eventId" />
-          <ScalarProperty Name="availablePlaces" ColumnName="availablePlaces" />
-          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-          <ScalarProperty Name="SignedUpUserEmail" ColumnName="SignedUpUserEmail" />
-          <ScalarProperty Name="rowVersion" ColumnName="rowVersion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

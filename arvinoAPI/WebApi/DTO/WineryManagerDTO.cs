@@ -12,5 +12,6 @@ namespace WebApi.DTO
 		public string lastName;
 		public string phone;
 		public string email;
+		public DateTime registrationDate;
 	}
 }

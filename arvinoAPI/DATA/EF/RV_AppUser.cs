@@ -21,8 +21,6 @@ namespace DATA.EF
             this.RV_Comment = new HashSet<RV_Comment>();
             this.RV_MessageInGroup = new HashSet<RV_MessageInGroup>();
             this.RV_Rate = new HashSet<RV_Rate>();
-            this.RV_SignedUpToEvent = new HashSet<RV_SignedUpToEvent>();
-            this.RV_SignedUpToEvent1 = new HashSet<RV_SignedUpToEvent>();
             this.RV_UserScore = new HashSet<RV_UserScore>();
             this.RV_UserWatchType = new HashSet<RV_UserWatchType>();
         }
@@ -43,10 +41,6 @@ namespace DATA.EF
         public virtual ICollection<RV_MessageInGroup> RV_MessageInGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_Rate> RV_Rate { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_SignedUpToEvent> RV_SignedUpToEvent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_SignedUpToEvent> RV_SignedUpToEvent1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_UserScore> RV_UserScore { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

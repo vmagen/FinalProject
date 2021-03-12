@@ -10,7 +10,7 @@ namespace WebApi.Models
 {
     public class AreaCategoryModel
     {
-        public static List<AreaCategoryDTO> GetAreaCategories(arvinoDbContext db)
+        public static List<AreaCategoryDTO> GetAreaCategories(ArvinoDbContext db)
         {
             return db.RV_AreaCategory.Select(a => new AreaCategoryDTO()
             {
