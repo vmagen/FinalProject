@@ -9,6 +9,7 @@ import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
+import FCFacebookLogin1 from './FCFacebookLogin1';
 
 export default function FCREgister({  }) {
   const navigation= useNavigation();
@@ -17,7 +18,7 @@ export default function FCREgister({  }) {
     email: '',
     password: '',
     confirmPassword: '',
-    picture: 'https://proj.ruppin.ac.il/bgroup15/prod/finalPics/avatar.jpg',
+    picture: 'https://proj.ruppin.ac.il/bgroup15/prod/finalPics/Ron.jpg',
     isEighteen: false, //over18
     isValidName: false, //name validation
     isValidEmail: false, //email validation
@@ -89,19 +90,21 @@ export default function FCREgister({  }) {
   const handleSubmitNewUser = async () => {
     if (user.isValidName && user.isValidPassword && user.isValidEmail && user.isConfirmPassword) {
       //Check email first - not duplicate.
-      const temp = await checkEmailExists();
-      if (!user.isExists) {
-        console.log("isExists: ", user.isExists);
+      const res = await fetch(helpers.getApi() + 'user/email?email=' + user.email);
+      const data = await res.json();
+      console.log("data", data);
+      if (data === null) {
+        console.log("HERE");
         //ADD TO DB
         AddToDB();
         //SaveToAsyncStorage
+        await AsyncStorage.removeItem('login');
         await AsyncStorage.setItem('login', JSON.stringify(user))
           .then(() => console.log("user saved!", user));
-          navigation.navigate('Login', { screen: 'questionere' });
+          navigation.push('Login', { screen: 'questionere' });
 
       } //user exists
       else {
-        console.log("isExists: ", user.isExists);
         //Alert message user exists
         Alert.alert("User Exists go to login");
         navigation.navigate('Login', { screen: 'login' });
@@ -125,7 +128,8 @@ export default function FCREgister({  }) {
   }
 
   const goToLoginPage = () => {
-    navigation.navigate('Login', { screen: 'login' });
+    //navigation.navigate('Login', { screen: 'login' });
+    navigation.navigate("login");
   }
 
   const AddToDB = async () => {
@@ -167,7 +171,7 @@ export default function FCREgister({  }) {
         <Text h4 style={StyleSheet.h4Text}>{headers.createAccount}</Text>
       </View>
       <View>
-        <FCFacebookLogin />
+        <FCFacebookLogin1 />
       </View>
       <Divider style={{ marginTop: 10 }} />
       <View>

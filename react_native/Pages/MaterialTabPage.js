@@ -9,52 +9,59 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FCCamera from '../FunctionalComponents/FCCamera';
 import FCQuestionere from '../FunctionalComponents/FCQuestionere';
 import FCSplashScreen from '../FunctionalComponents/FCSplashScreen';
+import FCWineriesCategories from '../FunctionalComponents/FCWineriesCategories';
+import FCLogin from '../FunctionalComponents/FCLogin';
+import { setStatusBarHidden } from 'expo-status-bar';
+import FCFacebookLogin1 from '../FunctionalComponents/FCFacebookLogin1';
+import { FCChat } from '../FunctionalComponents/FCChat';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const  MaterialTabPage=()=> {
+const MaterialTabPage = () => {
   return (
     <Tab.Navigator
-        initialRouteName="Home"
-        activeColor="#f0edf6"
-        barStyle={{ backgroundColor: '#691A1A' }}
-      >
-        <Tab.Screen name="Home" component={FCHomePage}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen name="Groups" component={FCGroups}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="group" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen name="Camera" component={FCCamera}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="camera" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen name="Wines" component={FCWineriesAndWines}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="access-point" color={color} size={26} />
-            ),
-          }}
-        />
-        <Tab.Screen name="Events" component={FCEvents}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="group" color={color} size={26} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+      initialRouteName="Home"
+      activeColor="#f0edf6"
+      barStyle={{ backgroundColor: '#691A1A' }}
+     
+    >
+      <Tab.Screen name="Home" component={FCHomePage}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Groups" component={FCGroups}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="group" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Camera" component={FCCamera}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="camera" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Wines" component={FCWineriesAndWines}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="access-point" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Events" component={FCWineriesCategories}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="group" color={color} size={26} />
+          ),
+        }}
+      />
+     
+    </Tab.Navigator>
   )
 
 }

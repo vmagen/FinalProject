@@ -86,7 +86,6 @@ export default function FCQuestionere() {
 
 
   const renderItem = ({ item, index }) => {
-    console.log("ITEM: ", item);
 
     return (
       <View style={{

@@ -19,10 +19,15 @@ const FCAvatar = () => {
    const getData = async () => {
       try {
          const jsonValue = await AsyncStorage.getItem('login');
-         const temp = await JSON.parse(jsonValue);
-         setPicture(temp.picture);
-         setName(temp.name);
-         return jsonValue != null ? JSON.parse(jsonValue) : null;
+         if (jsonValue !== null) {
+            const temp = await JSON.parse(jsonValue);
+            setPicture(temp.picture);
+            setName(temp.name);
+            return jsonValue != null ? JSON.parse(jsonValue) : null;   
+         }
+         else {
+            return null;
+         }
       } catch (e) {
          // error reading value
       }
@@ -35,7 +40,6 @@ const FCAvatar = () => {
       else {
          navigator.navigate('Login', { screen: 'profile' });
       }
-
    }
 
    return (

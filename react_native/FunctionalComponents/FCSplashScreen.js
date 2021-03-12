@@ -1,114 +1,109 @@
 import React from 'react';
 import {
-    View,
-    Text,
-    TouchableOpacity,
-    Dimensions,
-    StyleSheet,
-    StatusBar,
+  View,
+  Text,
+  TouchableOpacity,
+  Dimensions,
+  StyleSheet,
+  StatusBar,
 
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
-import logo from '../assets/logoArvino.png';
+import messages from '../helpers/messages.json';
+import { useNavigation } from '@react-navigation/native';
 
-const FCSplashScreen = ({ navigation }) => {
-    const { colors } = useTheme();
+const FCSplashScreen = (props) => {
+  const navigation = useNavigation();
+  const { colors } = useTheme();
 
-    return (
-        <View style={styles.container}>
-            <StatusBar backgroundColor='#009387' barStyle="light-content" />
-            <View style={styles.header}>
-                <Animatable.Image
-                    animation="bounceIn"
-                    duraton="1500"
-                    source={logo}
-                    style={styles.logo}
-                    resizeMode="stretch"
-                />
-            </View>
-            <Animatable.View
-                style={[styles.footer, {
-                    backgroundColor: colors.background
-                }]}
-                animation="fadeInUpBig"
-            >
-                <Text style={[styles.title, {
-                    color: colors.text
-                }]}>Stay connected with everyone!</Text>
-                <Text style={styles.text}>Sign in with account</Text>
-                <View style={styles.button}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                        <LinearGradient
-                            colors={['#691A1A', '#630f0f']}
-                            style={styles.signIn}>
-                            <Text style={styles.textSign}>Get Started</Text>
-                            <MaterialIcons
-                                name="navigate-next"
-                                color="#fff"
-                                size={20}
-                            />
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
-            </Animatable.View>
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <Animatable.View
+        style={[styles.footer, {
+          backgroundColor: colors.background
+        }]}
+        animation="fadeInUpBig"
+      >
+        <Text style={[styles.title, {
+          color: colors.text
+        }]}>{props.name}</Text>
+        <Text style={styles.text}>{props.description}</Text>
+        <View style={styles.button}>
+          <TouchableOpacity onPress={() => {
+            props.hideModal();
+            navigation.navigate('Login', {
+              screen: 'groupChat',
+              params: {
+                name: props.name,
+                description: props.description,
+                picture: props.picture,
+              }
+            });
+
+          }}>
+            <LinearGradient
+              colors={['#691A1A', '#630f0f']}
+              style={styles.signIn}>
+              <MaterialIcons
+                name="navigate-before"
+                color="#fff"
+                size={20}
+              />
+              <Text style={styles.textSign}>{messages.login}</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         </View>
-    );
+      </Animatable.View>
+    </View>
+  );
 };
 
 export default FCSplashScreen;
 
-const { height } = Dimensions.get("screen");
-const height_logo = height * 0.28;
+const { width } = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#691A1A'
-    },
-    header: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    footer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        paddingVertical: 50,
-        paddingHorizontal: 30
-    },
-    logo: {
-        width: height_logo,
-        height: height_logo
-    },
-    title: {
-        color: '#05375a',
-        fontSize: 30,
-        fontWeight: 'bold'
-    },
-    text: {
-        color: 'grey',
-        marginTop: 5
-    },
-    button: {
-        alignItems: 'flex-end',
-        marginTop: 30
-    },
-    signIn: {
-        width: 150,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 20,
-        flexDirection: 'row'
-    },
-    textSign: {
-        color: 'white',
-        fontWeight: 'bold'
-    }
+  container: {
+    flex: 1,
+    position: 'absolute',
+    width: width * 0.9,
+  },
+
+  footer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 30,
+    paddingVertical: 30,
+    paddingLeft: 70
+  },
+  title: {
+    color: '#05375a',
+    fontSize: 30,
+    fontWeight: 'bold'
+  },
+  text: {
+    color: 'grey',
+    marginTop: 5
+  },
+  button: {
+    alignItems: 'flex-start',
+    marginTop: 30
+  },
+  signIn: {
+    width: 150,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    flexDirection: 'row'
+  },
+  textSign: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
 });
 

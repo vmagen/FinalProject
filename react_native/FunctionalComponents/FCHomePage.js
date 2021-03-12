@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect , useCallback, useState} from 'react'
 import { View, Image } from 'react-native'
 import { Text, Divider } from 'react-native-elements'
 import FCWineries from './FCWineries'
@@ -9,13 +9,23 @@ import FCHeader from './FCHeader'
 import { ScrollView } from 'react-native-gesture-handler'
 import headers from '../helpers/messages.json';
 import FCSearch from './FCSearch'
-
+  
 export default function FCHomePage() {
+  
+  const [state, setState] = useState(0);
+  useEffect(() => {
+   setState(1);
+  }, [])
+
+  useCallback(e => {
+    console.log(e);
+  }, []);
+
   return (
     <ScrollView>
-      <View style={{backgroundColor:'#fff'}}>
+      <View style={{ backgroundColor: '#fff' }}>
         <FCHeader />
-        <FCSearch placeholder={headers.searchInArvino}/>
+        <FCSearch placeholder={headers.searchInArvino} />
         <Divider />
         <Text h4 style={styleSheet.h4Text}>{headers.upcomingEvents}</Text>
         <FCEvents />

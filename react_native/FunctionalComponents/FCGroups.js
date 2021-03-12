@@ -13,11 +13,8 @@ function FCGroups() {
   const [groups, setGroups] = useState([]);
   const [loaded, setloaded] = useState(false);
   
-  const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
-
   useEffect(() => {
+    setloaded(false);
     getGroups();
   }, [])
 

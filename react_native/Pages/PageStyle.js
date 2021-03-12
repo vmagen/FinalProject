@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 const { height } = Dimensions.get("screen");
 let eventHeight = height * 0.2;
-let wineryHeight = height * 0.1;
+let wineryHeight = height * 0.15;
 
 export default StyleSheet.create({
   container: {
@@ -58,7 +58,7 @@ export default StyleSheet.create({
   },
   winery: {
     alignItems: 'center',
-    width: 60,
+    width: 100,
     height: wineryHeight,
     margin: 15,
     padding: 20
@@ -132,4 +132,12 @@ export default StyleSheet.create({
     paddingLeft: 10,
     color: '#691A1A',
   },
+  footer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingVertical: 50,
+    paddingHorizontal: 30
+},
 });
