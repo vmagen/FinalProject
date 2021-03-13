@@ -11,10 +11,12 @@ import { FCChat } from './FCChat';
 export default function FCGroupChat(props) {
     const[name, setName]=useState('');
     const [description, setDescription]=useState('');
+    const[id, setID] = useState(0);
 
     useEffect(() => {
        setName(props.route.params.name);
        setDescription(props.route.params.description);
+       setID(props.route.params.id);
     }, [])
 
     const navigation=useNavigation();
@@ -36,9 +38,8 @@ export default function FCGroupChat(props) {
                         size={50} 
                         color="white"></Ionicons>
                 </View>
-               
             </ImageBackground>
-            <FCChat groupName={name} groupDesc={description} />
+            <FCChat groupName={name} groupDesc={description} groupID={id}/>
         </SafeAreaView>
     )
 }
