@@ -9,7 +9,7 @@ export default function FCBubbles(props) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [picture, setPicture] = useState('');
-
+  const[id, setId] = useState();
 
   const colors = ["#9B0000", "#6D0000", "#580000", "#430000",
     "#E96245", "#F4AC90", "#F1E6CD", "#ED8A68"];
@@ -38,6 +38,7 @@ export default function FCBubbles(props) {
                 setName(subject.name)
                 setDescription(subject.description)
                 setPicture(subject.picture)
+                setId(subject.ID);
               }}
               key={i}
               style={{
@@ -79,7 +80,7 @@ export default function FCBubbles(props) {
         })}
 
         {shouldShow ? (
-          <FCSplashScreen name={name} description={description} picture={picture} hideModal={hideModal} />
+          <FCSplashScreen id={id} name={name} description={description} picture={picture} hideModal={hideModal} />
         ) : null}
       </View>
     </SafeAreaView>

@@ -41,7 +41,7 @@ const FCSplashScreen = (props) => {
                 name: props.name,
                 description: props.description,
                 picture: props.picture,
-                id: props.ID
+                id: props.id
               }
             });
 

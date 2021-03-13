@@ -1,4 +1,4 @@
-import React, { useEffect , useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView, ImageBackground, StyleSheet, Image } from 'react-native';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
@@ -9,17 +9,16 @@ import { FCChat } from './FCChat';
 
 
 export default function FCGroupChat(props) {
-    const[name, setName]=useState('');
-    const [description, setDescription]=useState('');
-    const[id, setID] = useState(0);
+    const [name, setName] = useState(props.route.params.name);
+    const [description, setDescription] = useState(props.route.params.description);
+    const [id, setId] = useState(props.route.params.id);
 
     useEffect(() => {
-       setName(props.route.params.name);
-       setDescription(props.route.params.description);
-       setID(props.route.params.id);
+        console.log("ID", id);
+
     }, [])
 
-    const navigation=useNavigation();
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styleSheet.container}>
@@ -28,18 +27,18 @@ export default function FCGroupChat(props) {
                 style={styles.container}>
                 <View style={styles.overlay}>
                     <Text style={[styles.textStyle, {
-                         alignSelf: 'center'
-                          }]} >{props.route.params.name}</Text>
+                        alignSelf: 'center'
+                    }]} >{props.route.params.name}</Text>
                     <Image source={{ uri: props.route.params.picture }}
                         style={styles.avatarStyle} />
-                        <Ionicons style={styles.leftArrow} 
-                        onPress={()=>{navigation.navigate('Groups')}}
-                        name="chevron-back-outline" 
-                        size={50} 
+                    <Ionicons style={styles.leftArrow}
+                        onPress={() => { navigation.navigate('Groups') }}
+                        name="chevron-back-outline"
+                        size={50}
                         color="white"></Ionicons>
                 </View>
             </ImageBackground>
-            <FCChat groupName={name} groupDesc={description} groupID={id}/>
+            <FCChat groupName={name} groupDesc={description} groupID={id} />
         </SafeAreaView>
     )
 }
@@ -68,8 +67,8 @@ const styles = StyleSheet.create({
     balanceContainer: {
         padding: 10,
     },
-    leftArrow:{
-        position:'absolute',
+    leftArrow: {
+        position: 'absolute',
         alignSelf: 'flex-start',
         marginTop: 30
     }

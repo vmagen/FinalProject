@@ -1,43 +1,51 @@
-import React, { useState, useCallback, useEffect , setInterval} from 'react'
+import React, { useState, useCallback, useEffect, setInterval } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import helpers from '../helpers/helperFunctions';
-import initialMessages from '../Chats/messages';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function FCChat(props) {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState({
-    _id:-1,
-    name:'',
-    avatar:''
+    _id: -1,
+    name: '',
+    avatar: ''
   });
- 
+
+
   useEffect(() => {
-    
-    const getUser= async()=>{
-        const myUser= await AsyncStorage.getItem('login');
-        if(myUser !== null)
-        {
-          const temp=await JSON.parse(myUser);
-          setUser({
-            _id:temp.email,
-            name:temp.name,
-            avatar:temp.picture
-          });
-        }
-        else{
-          console.log('error');
-        }
+    const getUser = async () => {
+      const myUser = await AsyncStorage.getItem('login');
+      if (myUser !== null) {
+        const temp = await JSON.parse(myUser);
+        setUser({
+          _id: temp.email,
+          name: temp.name,
+          avatar: temp.picture
+        });
+      }
+      else {
+        console.log('user is not signed in');
+      }
     }
     getUser();
-    setMessages(initialMessages.reverse());
-  },[])
+    loadMessages();
+  }, [])
 
+  const loadMessages = async () => {
+    const result = await fetch(helpers.getApi() + 'Messages/'+ props.groupID);
+    const data = await result.json();
+    setMessages(data);
+  }
 
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
-    console.log(messages);
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
+    saveMessage();
   }, [])
+
+  const saveMessage = async () => {
+    console.log(messages);
+
+  }
 
   return (
     <GiftedChat
@@ -48,8 +56,6 @@ export function FCChat(props) {
       alwaysShowSend
       scrollToBottom
       showUserAvatar
-      renderAvatarOnTop
-      renderUsernameOnMessage
       bottomOffset={26}
       onPressAvatar={console.log}
       isCustomViewBottom={true}
