@@ -7,14 +7,15 @@ import FCWineCategories from './FCWineCategories';
 import FCSearch from './FCSearch';
 import messages from '../helpers/messages.json';
 import FCWineriesCategories from './FCWineriesCategories';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function FCWineriesAndWines() {
   return (
-    <SafeAreaView style={styleSheet.container}>
+    <ScrollView style={styleSheet.container}>
       <FCHeader />
       <FCToggleButton />
       <FCSearch placeholder={messages.searchInWines}/>
       <FCWineCategories />
-    </SafeAreaView>
+    </ScrollView>
   )
 }

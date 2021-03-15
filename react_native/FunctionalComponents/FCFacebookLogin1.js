@@ -6,12 +6,19 @@ import headers from '../helpers/messages.json';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import appUser from '../Componenets/UserObj';
 
 function FCFacebookLogin1() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [picture, setPicture] = useState('');
-
+  const [user,setUser]= useState({
+      name:'',
+      email:'',
+      picture:''
+  })
+  const navigation = useNavigation();
+  
   async function btnFBLogin() {
     try {
       await Facebook.initializeAsync({
@@ -31,6 +38,9 @@ function FCFacebookLogin1() {
         const res = await response.json();
         await updateUser(res.name, res.email);
         await fetchPicture(token);
+       
+        await AsyncStorage.setItem('login', JSON.stringify(user));
+        navigation.navigate('Home');
 
       } else {
         alert(`Facebook Login cancel`);
@@ -43,9 +53,13 @@ function FCFacebookLogin1() {
 
   async function updateUser(name, email) {
     //alert(`name:${name}, email:${email}`);
-    setName(name);
-    setEmail(email);
-    console.log(name, email);
+    setUser({
+      ...user,
+      name:name,
+      email:email
+    })
+   
+    console.log(user);
   }
 
   async function fetchPicture(token) {
@@ -61,7 +75,10 @@ function FCFacebookLogin1() {
       .then(json => {
         if (json != null) {
           const res = JSON.stringify(json);
-          setPicture(json.picture.data.url);
+          setUser({
+            ...user,
+            picture: json.picture.data.url
+          })
           console.log(json.picture.data.url);
 
         } else {

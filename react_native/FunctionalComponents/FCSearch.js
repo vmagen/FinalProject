@@ -9,14 +9,14 @@ function FCSearch({ placeholder }) {
         setSearch(text);
     }
 
-    const width1= Dimensions.get('window').width *0.9;
+    const Swidth= Dimensions.get('window').width *0.9;
     return (
         <Searchbar
             placeholder={placeholder}
             value={search}
             onChangeText={onChangeText}
             inputStyle={{ textAlign: 'right' }}
-            style={{ width: width1, alignSelf: 'center', margin: 10 }}
+            style={{ width: Swidth, alignSelf: 'center', margin: 10 }}
         />
     );
 }

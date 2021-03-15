@@ -5,12 +5,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import messages from '../helpers/messages.json';
-
+import styleSheet from '../Pages/PageStyle';
+import appUser from '../Componenets/UserObj';
 
 const FCAvatar = () => {
    const navigator = useNavigation();
    const [picture, setPicture] = useState('https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg');
    const [name, setName] = useState(messages.register);
+   const [isPremium, setisPremium]= useState(true);
 
    useEffect(() => {
       getData();
@@ -23,13 +25,14 @@ const FCAvatar = () => {
             const temp = await JSON.parse(jsonValue);
             setPicture(temp.picture);
             setName(temp.name);
-            return jsonValue != null ? JSON.parse(jsonValue) : null;   
+            console.log('avatar ', picture);
+            return jsonValue != null ? JSON.parse(jsonValue) : null;
          }
          else {
             return null;
          }
       } catch (e) {
-         // error reading value
+         console.log(e);
       }
    }
 
@@ -47,14 +50,15 @@ const FCAvatar = () => {
          <View style={{ alignItems: 'center', marginLeft: 50, marginTop: 20 }}>
             <Avatar
                rounded={true}
-               size="medium"
+               size="large"
+               containerStyle={[styleSheet.avatar, isPremium ? styleSheet.avatarGold : styleSheet.avatarReg]}
                source={{
                   uri:
                      picture,
                }}
                icon={{ name: 'user', type: 'font-awesome' }}
             />
-            <Text>{name}</Text>
+            <Text style={[styleSheet.textInput, {margin:10}]}>{name}</Text>
          </View>
       </TouchableOpacity>
    )

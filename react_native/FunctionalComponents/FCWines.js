@@ -2,7 +2,6 @@ import React, { useState, useEffect, } from 'react';
 import { View, Image, Text, ActivityIndicator, ScrollView } from 'react-native';
 import styleSheet from '../Pages/PageStyle'
 import helpers from '../helpers/helperFunctions';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function FCWines() {
   const [wines, setWines] = useState([]);

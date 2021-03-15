@@ -7,6 +7,7 @@ import styleSheet from '../Pages/PageStyle';
 import messages from '../helpers/messages.json';
 import FCBubbles from './FCBubbles';
 import helpers from '../helpers/helperFunctions';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 function FCGroups() {
@@ -41,12 +42,12 @@ function FCGroups() {
   }
 
   return (
-    <SafeAreaView style={styleSheet.container}>
+    <ScrollView style={styleSheet.container}>
       <FCHeader />
       <Text h2 style={styleSheet.h4Text}>{messages.groups}</Text>
       <FCSearch placeholder={messages.searchInGroups} />
       {loaded ? <FCBubbles myGroups={groups} /> : <ActivityIndicator size='large'/>}
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 

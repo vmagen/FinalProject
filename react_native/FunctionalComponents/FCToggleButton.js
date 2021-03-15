@@ -10,10 +10,10 @@ export default function FCToggleButton() {
     return (
         <View style={styleSheet.row}>
           <TouchableOpacity  style={styleSheet.toggleBoxInActive}  >
-            <Text style ={styleSheet.inButtonActive}>{messages.wines}</Text>
+            <Text style ={styleSheet.inButtonActive}>{messages.wineries}</Text>
           </TouchableOpacity >
           <TouchableOpacity  style={styleSheet.toggleBoxActive} >
-            <Text style ={styleSheet.inButtonInActive}>{messages.wineries}</Text>
+            <Text style ={styleSheet.inButtonInActive}>{messages.wines}</Text>
           </TouchableOpacity >
         </View>
       );

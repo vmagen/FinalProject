@@ -33,7 +33,8 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 30
 
   },
   rowEvents: {
@@ -139,5 +140,22 @@ export default StyleSheet.create({
     borderTopRightRadius: 30,
     paddingVertical: 50,
     paddingHorizontal: 30
-},
+  },
+  avatar:{
+    borderWidth: 4,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6,
+  },
+  avatarReg:{
+    borderColor: '#691A1A',
+  },
+  avatarGold: {
+    borderColor: '#FFD700',
+  },
 });

@@ -14,8 +14,7 @@ export default function FCGroupChat(props) {
     const [id, setId] = useState(props.route.params.id);
 
     useEffect(() => {
-        console.log("ID", id);
-
+        
     }, [])
 
     const navigation = useNavigation();

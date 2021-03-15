@@ -4,7 +4,6 @@ import { Text, Divider } from 'react-native-elements';
 import headers from '../helpers/messages.json';
 import FCHeader from './FCHeader';
 import StyleSheet from '../Pages/PageStyle';
-import FCFacebookLogin from './FCFacBookLogin';
 import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -94,7 +93,6 @@ export default function FCREgister({  }) {
       const data = await res.json();
       console.log("data", data);
       if (data === null) {
-        console.log("HERE");
         //ADD TO DB
         AddToDB();
         //SaveToAsyncStorage

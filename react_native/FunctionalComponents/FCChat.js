@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function FCChat(props) {
   const [messages, setMessages] = useState([]);
+  const [lastDate, setLastDate] = useState();
   const [user, setUser] = useState({
     _id: -1,
     name: '',
@@ -29,10 +30,13 @@ export function FCChat(props) {
     }
     getUser();
     loadMessages();
-  }, [])
+    
+  }, [messages])
+
+ 
 
   const loadMessages = async () => {
-    const result = await fetch(helpers.getApi() + 'Messages/'+ props.groupID);
+    const result = await fetch(helpers.getApi() + 'Messages/' + props.groupID);
     const data = await result.json();
     setMessages(data);
   }
@@ -43,8 +47,10 @@ export function FCChat(props) {
   }, [])
 
   const saveMessage = async () => {
-    console.log(messages);
-
+    console.log(lastDate);
+    messages.map(gm => {
+      console.log(gm);
+    })
   }
 
   return (

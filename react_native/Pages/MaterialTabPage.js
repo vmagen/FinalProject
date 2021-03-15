@@ -2,18 +2,12 @@ import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import FCHomePage from '../FunctionalComponents/FCHomePage';
 import FCGroups from '../FunctionalComponents/FCGroups';
-import FCREgister from '../FunctionalComponents/FCREgister';
 import FCWineriesAndWines from '../FunctionalComponents/FCWineriesAndWines';
-import FCEvents from '../FunctionalComponents/FCEvents';
+import FCEventsScrollView from '../FunctionalComponents/FCEventsScrollView';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FCCamera from '../FunctionalComponents/FCCamera';
-import FCQuestionere from '../FunctionalComponents/FCQuestionere';
-import FCSplashScreen from '../FunctionalComponents/FCSplashScreen';
 import FCWineriesCategories from '../FunctionalComponents/FCWineriesCategories';
-import FCLogin from '../FunctionalComponents/FCLogin';
-import { setStatusBarHidden } from 'expo-status-bar';
-import FCFacebookLogin1 from '../FunctionalComponents/FCFacebookLogin1';
-import { FCChat } from '../FunctionalComponents/FCChat';
+import FCEvents from '../FunctionalComponents/FCEvents';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -35,7 +29,7 @@ const MaterialTabPage = () => {
       <Tab.Screen name="Groups" component={FCGroups}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="group" color={color} size={26} />
+            <MaterialCommunityIcons name="account-group" color={color} size={24} />
           ),
         }}
       />
@@ -49,14 +43,14 @@ const MaterialTabPage = () => {
       <Tab.Screen name="Wines" component={FCWineriesAndWines}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="access-point" color={color} size={26} />
+            <MaterialCommunityIcons name="glass-wine" color={color} size={26} />
           ),
         }}
       />
-      <Tab.Screen name="Events" component={FCWineriesCategories}
+      <Tab.Screen name="Events" component={FCEvents}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="group" color={color} size={26} />
+            <MaterialCommunityIcons name="calendar" color={color} size={26} />
           ),
         }}
       />
