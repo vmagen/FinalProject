@@ -30,6 +30,11 @@ export default StyleSheet.create({
     elevation: 5,
 
   },
+  inner: {
+    padding: 24,
+    flex: 1,
+    justifyContent: "space-around"
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -117,9 +122,9 @@ export default StyleSheet.create({
     margin: 15
   },
   input: {
-    width: 250,
-    alignSelf: 'center',
-    textAlign: 'right'
+    height: 40,
+    borderColor: "#000000",
+    marginBottom: 10
   },
   textInput: {
     flex: 1,
