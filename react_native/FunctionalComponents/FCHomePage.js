@@ -14,6 +14,7 @@ export default function FCHomePage() {
   
   const [state, setState] = useState(0);
   useEffect(() => {
+    setState(1);
   }, [state])
 
   useCallback(e => {

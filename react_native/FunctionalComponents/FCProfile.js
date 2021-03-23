@@ -7,10 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 
 const FCProfile = () => {
     const navigation =useNavigation();
+    
     const logOut = async () => {
         await AsyncStorage.removeItem('login');
-        navigation.push('MaterialTabPage', { screen: 'Home' });
-
+        alert('user Logged out ! hope to see you soon!');
+        navigation.navigate('Home');
     }
 
     return (

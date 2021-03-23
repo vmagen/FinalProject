@@ -5,7 +5,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function FCChat(props) {
   const [messages, setMessages] = useState([]);
-  const [lastDate, setLastDate] = useState();
+  const [text, setText] = useState('');
+  const [lastDate, setLastDate] = useState(null);
+
   const [user, setUser] = useState({
     _id: -1,
     name: '',
@@ -14,48 +16,50 @@ export function FCChat(props) {
 
 
   useEffect(() => {
-    const getUser = async () => {
-      const myUser = await AsyncStorage.getItem('login');
-      if (myUser !== null) {
-        const temp = await JSON.parse(myUser);
-        setUser({
-          _id: temp.email,
-          name: temp.name,
-          avatar: temp.picture
-        });
-      }
-      else {
-        console.log('user is not signed in');
-      }
+    if (lastDate == null) {
+      getUser();
+      loadMessages();
     }
-    getUser();
-    loadMessages();
-    
-  }, [messages])
+  }, [])
 
- 
+  const getlastDate=()=>{
+   console.log(messages);
+  }
+
+  const getUser = async () => {
+    const myUser = await AsyncStorage.getItem('login');
+    if (myUser !== null) {
+      const temp = await JSON.parse(myUser);
+      setUser({
+        _id: temp.email,
+        name: temp.name,
+        avatar: temp.picture
+      });
+    }
+    else {
+      console.log('user is not signed in');
+    }
+
+  }
 
   const loadMessages = async () => {
     const result = await fetch(helpers.getApi() + 'Messages/' + props.groupID);
     const data = await result.json();
     setMessages(data);
+  
   }
 
-  const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
-    saveMessage();
-  }, [])
-
-  const saveMessage = async () => {
+  const onSend = (newMessages = []) => {
+    setMessages((prevMessages) => GiftedChat.append(prevMessages, newMessages));
     console.log(lastDate);
-    messages.map(gm => {
-      console.log(gm);
-    })
-  }
+  };
+
 
   return (
     <GiftedChat
       messages={messages}
+      text={text}
+      onInputTextChanged={setText}
       onSend={onSend}
       user={user}
       alignTop

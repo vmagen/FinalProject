@@ -16,7 +16,7 @@ function FCSearch({ placeholder }) {
             value={search}
             onChangeText={onChangeText}
             inputStyle={{ textAlign: 'right' }}
-            style={{ width: Swidth, alignSelf: 'center', margin: 10 }}
+            style={{ width: Swidth, alignSelf: 'center', margin: 5 }}
         />
     );
 }

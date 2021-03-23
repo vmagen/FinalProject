@@ -34,7 +34,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    marginTop: 30
+    marginTop: 10
 
   },
   rowEvents: {
@@ -49,7 +49,7 @@ export default StyleSheet.create({
   },
   h4Text: {
     textAlign: 'right',
-    padding: 20,
+    padding: 10,
     fontWeight: 'bold'
   },
   event: {

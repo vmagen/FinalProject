@@ -8,7 +8,7 @@ import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
-import FCFacebookLogin1 from './FCFacebookLogin1';
+import FCFacebookLogin from './FCFacebookLogin';
 
 export default function FCREgister({  }) {
   const navigation= useNavigation();
@@ -151,14 +151,10 @@ export default function FCREgister({  }) {
       })
       .then(res => {
         return JSON.stringify(res);
+      }, (error)=>{
+        alert(error);
       })
-      .then(
-        (result) => {
-          //console.log("result = ", result);
-        },
-        (error) => {
-          console.log("err post=", error);
-        });
+      
   }
 
 
@@ -169,7 +165,7 @@ export default function FCREgister({  }) {
         <Text h4 style={StyleSheet.h4Text}>{headers.createAccount}</Text>
       </View>
       <View>
-        <FCFacebookLogin1 />
+        <FCFacebookLogin />
       </View>
       <Divider style={{ marginTop: 10 }} />
       <View>

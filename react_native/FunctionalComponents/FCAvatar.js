@@ -8,12 +8,13 @@ import messages from '../helpers/messages.json';
 import styleSheet from '../Pages/PageStyle';
 import appUser from '../Componenets/UserObj';
 
-const FCAvatar = () => {
+const FCAvatar = (props) => {
    const navigator = useNavigation();
    const [picture, setPicture] = useState('https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg');
    const [name, setName] = useState(messages.register);
    const [isPremium, setisPremium]= useState(true);
-
+   const [isLogin, setisLogin] = useState(false);
+   
    useEffect(() => {
       getData();
    }, []);
@@ -21,11 +22,11 @@ const FCAvatar = () => {
    const getData = async () => {
       try {
          const jsonValue = await AsyncStorage.getItem('login');
-         if (jsonValue !== null) {
+         if (jsonValue !== null ) {
+            setisLogin(true);
             const temp = await JSON.parse(jsonValue);
             setPicture(temp.picture);
             setName(temp.name);
-            console.log('avatar ', picture);
             return jsonValue != null ? JSON.parse(jsonValue) : null;
          }
          else {
@@ -47,10 +48,10 @@ const FCAvatar = () => {
 
    return (
       <TouchableOpacity onPress={navigateToPage}>
-         <View style={{ alignItems: 'center', marginLeft: 50, marginTop: 20 }}>
+         <View style={{ alignItems: 'center', marginLeft:50, marginTop:40 }}>
             <Avatar
                rounded={true}
-               size="large"
+               size="medium"
                containerStyle={[styleSheet.avatar, isPremium ? styleSheet.avatarGold : styleSheet.avatarReg]}
                source={{
                   uri:

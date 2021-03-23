@@ -8,6 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FCCamera from '../FunctionalComponents/FCCamera';
 import FCWineriesCategories from '../FunctionalComponents/FCWineriesCategories';
 import FCEvents from '../FunctionalComponents/FCEvents';
+import FCEventsContainer from '../FunctionalComponents/FCEventsContainer';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -47,7 +48,7 @@ const MaterialTabPage = () => {
           ),
         }}
       />
-      <Tab.Screen name="Events" component={FCEvents}
+      <Tab.Screen name="Events" component={FCEventsContainer}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="calendar" color={color} size={26} />

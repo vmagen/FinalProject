@@ -30,7 +30,15 @@
      "continueWithFb":"המשך לרישום עם פייסבוק",
      "register":"הירשם",
      "buildYourProfile":"בונים לך פרופיל",
-     "skip":"דלג"
+     "skip":"דלג",
+     "where":"היכן:",
+     "when":"מתי",
+     "DetailsOnEvent":"פרטים על הארוע",
+     "leftWith":"נשארו",
+     "tickets":"כרטיסים",
+     "insertFullName":"שם מלא*",
+     "insertPhone":"מספר טלפון*",
+     "insertNumPeople":"מספר אנשים*"
     }
   
   
