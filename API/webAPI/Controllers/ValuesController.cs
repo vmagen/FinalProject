@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using DATA.EF;
+using webAPI.Models;
+using webAPI.DTO;
 
 namespace webAPI.Controllers
 {
