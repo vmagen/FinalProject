@@ -12,7 +12,6 @@ export default function FCWineCategories() {
     setshowComponment(!showComponment);
   };
 
-
   const subjects = [
     { id: 1, name: messages.redWines, img: require('../assets/RED.jpg') },
     { id: 2, name: messages.whiteWines, img: require('../assets/white.jpg') },

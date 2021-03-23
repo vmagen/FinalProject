@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, ScrollView, Dimensions, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
 import messages from '../helpers/messages.json';
-
+import FCWineryList from './FCWineryList';
 
 export default function FCWineriesCategories() {
+  const [showComponment, setshowComponment] = useState(false);
+  const [categorySelected, setCategorySelected] = useState();
+
+  const _toggleShow = () => {
+    setshowComponment(!showComponment);
+  };
+
   const subjects = [
     { id: 1, name: messages.galil, img: require('../assets/galil.jpg') },
     { id: 2, name: messages.golan, img: require('../assets/Golan1.jpg') },
@@ -16,39 +23,55 @@ export default function FCWineriesCategories() {
   const cardGap = 16;
   const cardWidth = (Dimensions.get('window').width - cardGap * 3) / 2;
 
-  return (
-    <ScrollView>
-      <View
-        style={styles.container}
-      >
-        {subjects.map((subject, i) => {
-          return (
-            <View
-              key={subject.id}
-              style={{
-                marginTop: cardGap,
-                marginLeft: i % 2 !== 0 ? cardGap : 0,
-                width: cardWidth,
-                height: 180,
-                backgroundColor: 'white',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius:16
-              }}
-            >
-              <TouchableOpacity >
-                <ImageBackground source={subject.img} style={{ opacity: 0.6, width: cardWidth, height: 180,borderRadius:16}}>
-                  <View style={styles.View}>
-                    <Text style={styles.text}>{subject.name}</Text>
-                  </View>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-          );
-        })}
-      </View>
-    </ScrollView>
-  )
+  if (!showComponment) {
+    return (
+      <ScrollView>
+        <View
+          style={styles.container}>
+          {subjects.map((subject, i) => {
+            return (
+              <View
+                key={subject.id}
+                style={{
+                  marginTop: cardGap,
+                  marginLeft: i % 2 !== 0 ? cardGap : 0,
+                  width: cardWidth,
+                  height: 180,
+                  backgroundColor: 'white',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 16
+                }}
+              >
+                <TouchableOpacity
+                   onPress={() => {
+                    setCategorySelected(subject.id);
+                    console.log(categorySelected);
+                    _toggleShow();
+                  }} >
+                  <ImageBackground
+                    source={subject.img}
+                    style={{ opacity: 0.6, width: cardWidth, height: 180, borderRadius: 16 }}>
+                   
+                    <View style={styles.View}>
+                      <Text style={styles.text}>{subject.name}</Text>
+                    </View>
+                  </ImageBackground>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
+        </View>
+      </ScrollView>
+    )
+    
+  }
+  else{
+    return(
+      <FCWineryList toggleShow={_toggleShow} categoryId={categorySelected} />
+    )
+  }
+  
 }
 
 const styles = StyleSheet.create({

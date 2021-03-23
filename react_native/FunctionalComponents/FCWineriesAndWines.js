@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import FCHeader from './FCHeader'
 import styleSheet from '../Pages/PageStyle';
@@ -10,12 +10,18 @@ import FCWineriesCategories from './FCWineriesCategories';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function FCWineriesAndWines() {
+  const [isWine, setisWine] = useState(true)
+
+  const toggleButtons = () => {
+    setisWine(!isWine);
+  }
+
   return (
-    <ScrollView style={styleSheet.container}>
+    <ScrollView style={styleSheet.container} showsVerticalScrollIndicator={false}>
       <FCHeader />
-      <FCToggleButton />
-      <FCSearch placeholder={messages.searchInWines}/>
-      <FCWineCategories />
+      <FCToggleButton isWine={isWine} toggleButtons={toggleButtons} />
+      <FCSearch placeholder={isWine ? messages.searchInWines : messages.searchInWineries} />
+      {isWine ? <FCWineCategories /> : <FCWineriesCategories />}
     </ScrollView>
   )
 }
