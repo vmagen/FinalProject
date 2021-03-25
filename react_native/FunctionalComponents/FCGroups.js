@@ -42,12 +42,12 @@ function FCGroups() {
   }
 
   return (
-    <ScrollView style={styleSheet.container}>
+    <View style={styleSheet.container}>
       <FCHeader />
       <Text h2 style={styleSheet.h4Text}>{messages.groups}</Text>
       <FCSearch placeholder={messages.searchInGroups} />
       {loaded ? <FCBubbles myGroups={groups} /> : <ActivityIndicator size='large'/>}
-    </ScrollView>
+    </View>
   );
 }
 

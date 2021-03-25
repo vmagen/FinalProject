@@ -6,15 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import messages from '../helpers/messages.json';
 import styleSheet from '../Pages/PageStyle';
-import appUser from '../Componenets/UserObj';
 
 const FCAvatar = (props) => {
    const navigator = useNavigation();
    const [picture, setPicture] = useState('https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg');
    const [name, setName] = useState(messages.register);
-   const [isPremium, setisPremium]= useState(true);
+   const [isPremium, setisPremium] = useState(true);
    const [isLogin, setisLogin] = useState(false);
-   
+
    useEffect(() => {
       getData();
    }, []);
@@ -22,7 +21,7 @@ const FCAvatar = (props) => {
    const getData = async () => {
       try {
          const jsonValue = await AsyncStorage.getItem('login');
-         if (jsonValue !== null ) {
+         if (jsonValue !== null) {
             setisLogin(true);
             const temp = await JSON.parse(jsonValue);
             setPicture(temp.picture);
@@ -48,7 +47,7 @@ const FCAvatar = (props) => {
 
    return (
       <TouchableOpacity onPress={navigateToPage}>
-         <View style={{ alignItems: 'center', marginLeft:50, marginTop:40 }}>
+         <View style={{ alignItems: 'center', marginLeft: 50, marginTop: 40 }}>
             <Avatar
                rounded={true}
                size="medium"
@@ -59,7 +58,7 @@ const FCAvatar = (props) => {
                }}
                icon={{ name: 'user', type: 'font-awesome' }}
             />
-            <Text style={[styleSheet.textInput, {margin:10}]}>{name}</Text>
+            <Text style={[styleSheet.textInput, { margin: 10 }]}>{name}</Text>
          </View>
       </TouchableOpacity>
    )

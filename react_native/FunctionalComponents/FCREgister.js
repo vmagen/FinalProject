@@ -8,8 +8,8 @@ import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
+import loginFunctions from '../helpers/LoginFunctions';
 import FCFacebookLogin from './FCFacebookLogin';
-import messages from '../Chats/messages';
 
 export default function FCREgister({ }) {
   const navigation = useNavigation();
@@ -116,14 +116,7 @@ export default function FCREgister({ }) {
 
   //http://localhost:64023/api/user/email?email=asaf@gmail.com
   const checkEmailExists = async () => {
-    await fetch(helpers.getApi() + 'user/email?email=' + user.email,
-      {
-        method: 'GET',
-        headers: new Headers({
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Accept': 'application/json; charset=UTF-8',
-        })
-      })
+
   }
 
   const goToLoginPage = () => {
@@ -185,10 +178,12 @@ export default function FCREgister({ }) {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}>
-      <FCHeader />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
         <View style={styles.inner}>
-          <Text style={myStyles.h4Text}>{headers.register}</Text>
+          <Text h4 style={myStyles.h4Text}>{headers.registeration}</Text>
+          <FCFacebookLogin />
+          <Divider />
           <TextInput
             placeholder={headers.insertName}
             rightIcon={{ type: 'font-awesome', name: 'user' }}

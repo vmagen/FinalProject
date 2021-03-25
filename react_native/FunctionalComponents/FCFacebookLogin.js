@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import * as Facebook from 'expo-facebook';
+import { Alert } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import headers from '../helpers/messages.json';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import UserInfo from '../Componenets/UserObj';
 
 function FCFacebookLogin() {
   const navigation = useNavigation();
@@ -69,3 +69,10 @@ function FCFacebookLogin() {
 
 export default FCFacebookLogin;
 
+export class UserInfo {
+  constructor(email, name, picture) {
+    this.email = email;
+    this.name = name;
+    this.picture = picture
+  }
+}

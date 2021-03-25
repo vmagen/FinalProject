@@ -5,10 +5,12 @@ import {
 } from 'react-native';
 import { ListItem, Avatar, Icon } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
+import { useNavigation } from '@react-navigation/native';
 
 
 const FCWineryList = (props) => {
   const [wineries, setWineries] = useState([]);
+  const navigation= useNavigation();
 
   useEffect(() => {
     getWineries();
@@ -34,8 +36,20 @@ const FCWineryList = (props) => {
         wineries.map((winery, i) => (
           <ListItem
             style={{ justifyContent: 'flex-end' }}
-            key={i}
-            bottomDivider>
+            key={winery.ID}
+            bottomDivider
+            onPress={
+              ()=>{
+                navigation.navigate('Login', {
+                  screen: 'winery',
+                  params: {
+                    name: winery.WineryName,
+                    image: winery.WineryImage,
+                    id: winery.ID
+                  }
+                });
+              }
+            }>
             <ListItem.Content>
               <ListItem.Title>{winery.WineryName}</ListItem.Title>
             </ListItem.Content>

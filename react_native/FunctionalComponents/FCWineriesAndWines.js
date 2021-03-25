@@ -17,11 +17,11 @@ export default function FCWineriesAndWines() {
   }
 
   return (
-    <ScrollView style={styleSheet.container} showsVerticalScrollIndicator={false}>
+    <View style={styleSheet.container} >
       <FCHeader />
       <FCToggleButton isWine={isWine} toggleButtons={toggleButtons} />
       <FCSearch placeholder={isWine ? messages.searchInWines : messages.searchInWineries} />
       {isWine ? <FCWineCategories /> : <FCWineriesCategories />}
-    </ScrollView>
+    </View>
   )
 }

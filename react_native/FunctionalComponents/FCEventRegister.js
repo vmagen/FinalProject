@@ -8,30 +8,31 @@ import {
   StatusBar,
 
 } from 'react-native';
-import { Input, Icon, Text , Button } from 'react-native-elements';
+import { Input, Icon, Text, Button } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from '@react-navigation/native';
 import messages from '../helpers/messages.json';
 import styleSheet from '../Pages/PageStyle';
 import helpers from '../helpers/helperFunctions';
 import bitLogo from '../assets/BIT_logo.jpg'
+import { Alert } from 'react-native';
 
 const FCEventRegister = (props) => {
   const { colors } = useTheme();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,{marginBottom:100}]}>
 
       <Animatable.View
         style={[styles.footer, {
           backgroundColor: colors.card,
           borderStyle: 'solid',
-          borderWidth: 1
+          borderWidth: 1,
         }]}
         animation="fadeInUpBig"
       >
         <View style={{ flex: 1, flexDirection: 'row' }}>
-          <View style={{flex:0.5}}><Icon
+          <View style={{ flex: 0.5 }}><Icon
             reverse
             name='close'
             type='ionicon'
@@ -49,7 +50,7 @@ const FCEventRegister = (props) => {
             <Text style={{ textAlign: 'right' }}>
               בשעה {` ${helpers.ReturnHour(props.date)}`}
             </Text>
-           
+
           </View>
         </View>
         <View>
@@ -70,8 +71,13 @@ const FCEventRegister = (props) => {
             placeholder={messages.insertNumPeople}
             inputContainerStyle={styleSheet.input}
           />
-             <Image source={bitLogo} style={{width:70, height:70,alignSelf:'center'}}
-                         />
+          <Image
+            source={bitLogo}
+            style={{ width: 70, height: 70, alignSelf: 'center' }}
+            onPress={() => {
+              Alert.alert("תודה שנרשמת!")
+            }}
+          />
         </View>
       </Animatable.View>
     </View>

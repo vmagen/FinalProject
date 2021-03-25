@@ -5,9 +5,11 @@ import {
 import { ListItem, Avatar, Icon } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import styleSheet from '../Pages/PageStyle';
+import { useNavigation } from '@react-navigation/native';
 
 const FCWineList = (props) => {
   const [wines, setWines] = useState([]);
+  const navigation= useNavigation();
 
   useEffect(() => {
     getWines();
@@ -33,8 +35,20 @@ const FCWineList = (props) => {
         wines.map((wine, i) => (
           <ListItem
             style={{display:'flex', justifyContent: 'flex-end' }}
-            key={i}
-            bottomDivider>
+            key={wine.ID}
+            bottomDivider
+            onPress={
+              ()=>{
+                navigation.navigate('Login', {
+                  screen: 'wine',
+                  params: {
+                    name: wine.WineName,
+                    image: wine.WineImg,
+                    id: wine.ID
+                  }
+                });
+              }
+            }>
             <ListItem.Content>
               <ListItem.Title>{wine.WineName}</ListItem.Title>
             </ListItem.Content>

@@ -2,9 +2,12 @@ import React, { useState, useEffect, } from 'react';
 import { View, Image, Text, ActivityIndicator, ScrollView } from 'react-native';
 import styleSheet from '../Pages/PageStyle'
 import helpers from '../helpers/helperFunctions';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 function FCWines() {
   const [wines, setWines] = useState([]);
+  const navigation= useNavigation();
 
   useEffect(() => {
     getWines();
@@ -37,12 +40,26 @@ function FCWines() {
       pagingEnabled={true}
       style={styleSheet.scrollView}>
       {wines.map(item => (
-        <View style={{ alignItems: 'center', padding: 10 }} key={item.ID}>
+        <TouchableOpacity
+        style={{ alignItems: 'center', padding: 10 }} 
+        key={item.ID} 
+        onPress={
+          ()=>{
+            navigation.navigate('Login', {
+              screen: 'wine',
+              params:{
+                name:item.WineName,
+                image:item.WineImg,
+                id: item.ID
+              }
+            });
+          }
+        }>
           <Image
             source={{ uri: item.WineImg }}
             style={styleSheet.wine} />
           <Text>{item.WineName}</Text>
-        </View>
+        </TouchableOpacity>
 
       ))}
     </ScrollView>

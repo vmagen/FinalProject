@@ -5,6 +5,8 @@ import FCProfile from '../FunctionalComponents/FCProfile';
 import FCLogin from '../FunctionalComponents/FCLogin';
 import FCQuestionere from '../FunctionalComponents/FCQuestionere';
 import FCGroupChat from '../FunctionalComponents/FCGroupChat';
+import FCWine from '../FunctionalComponents/FCWine';
+import FCWinery from '../FunctionalComponents/FCWinery';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,9 @@ const Pages = () => (
         <Stack.Screen name="profile" component={FCProfile}/>
         <Stack.Screen name="questionere" component={FCQuestionere}/>
         <Stack.Screen name="groupChat" component={FCGroupChat}/>
+        <Stack.Screen name="wine" component={FCWine}/>
+        <Stack.Screen name="winery" component={FCWinery}/>
+
     </Stack.Navigator>
 );
 

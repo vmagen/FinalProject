@@ -26,7 +26,8 @@ const FCLogin = () => {
     
     if (data !== null) {
       if (data.password == user.password) {
-        AsyncStorage.setItem('login', JSON.stringify(data));
+        await AsyncStorage.setItem('login', JSON.stringify(data));
+        
         navigation.navigate('Home');
       }
       else {
@@ -74,9 +75,8 @@ const FCLogin = () => {
 
 
   return (
-    <SafeAreaView style={styleSheet.container}>
-      <FCHeader />
-      <View >
+    <SafeAreaView style={[styleSheet.container]}>
+      <View style={{marginTop:180}}>
         <Text h4 style={styleSheet.h4Text}>כניסה</Text>
       </View>
       <View>

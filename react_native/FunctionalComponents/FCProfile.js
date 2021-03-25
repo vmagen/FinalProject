@@ -23,13 +23,6 @@ const FCProfile = () => {
                 <FCHeader/>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <View style={styles.inner}>
-                        <TextInput placeholder="Username" style={styles.textInput} />
-                        <TextInput placeholder="password" style={styles.textInput} />
-                        <TextInput placeholder="Username" style={styles.textInput} />
-                        <TextInput placeholder="password" style={styles.textInput} />
-                        <View style={styles.btnContainer}>
-                            <Button title="sdasd" onPress={() => null} />
-                        </View>
                         <View style={styles.btnContainer}>
                             <Button title="LOG OUT" onPress={logOut} />
                         </View>
