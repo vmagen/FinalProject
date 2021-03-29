@@ -26,5 +26,9 @@ namespace webAPI.Models
             }).ToList();
         }
 
+        public static List<RV_Winery> GetWineryByArea(ArvinoDbContext db, int areaId)
+        {
+            return db.RV_Winery.Where(e => e.areaId == areaId).ToList();
+        }
     }
 }

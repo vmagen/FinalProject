@@ -35,6 +35,24 @@ namespace webAPI.Controllers
             }
         }
 
+        /// <summary>
+        ///  https://localhost:44370/api/Winery/area?areaID=2
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/Winery/area/")]
+        public IHttpActionResult GetWineryByArea(int areaID)
+        {
+            try
+            {
+                return Ok(WineryModel.GetWineryByArea(db, areaID));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
 
     }
 }
