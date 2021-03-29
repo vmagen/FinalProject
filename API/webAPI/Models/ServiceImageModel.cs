@@ -14,5 +14,14 @@ namespace webAPI.Models
         {
             return db.RV_ServiceImage.Include(x => x.RV_Service).SingleOrDefault(x => x.imgId == id);
         }
+
+        public static List<ServiceImageDTO> GetAllServiceImages(int id, ArvinoDbContext db)
+        {
+            return db.RV_ServiceImage.Where(i => i.serviceId == id).Select(value => new ServiceImageDTO()
+            {
+                ImgPath = value.ImgPath,
+                imgId = value.imgId
+            }).ToList();
+        }
     }
 }

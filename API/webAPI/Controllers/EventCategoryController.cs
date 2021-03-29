@@ -33,5 +33,30 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
+
+        /// <summary>
+        /// https://localhost:44370/api/EventCategory
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IHttpActionResult Post([FromBody] EventCategoryDTO value)
+        {
+            try
+            {
+                RV_EventCategory eventCategory = new RV_EventCategory()
+                {
+                    categoryName = value.categoryName
+
+                };
+                db.RV_EventCategory.Add(eventCategory);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }

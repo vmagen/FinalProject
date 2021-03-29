@@ -56,5 +56,24 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        /// <summary>
+        /// https://localhost:44370/api/WineryManager/email?email=asaf@gmail.com
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/WineryManager/email")]
+        public IHttpActionResult GetEmail(string email)
+        {
+            try
+            {
+                return Ok(WineryManagerModel.GetWineryManager(email, db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }

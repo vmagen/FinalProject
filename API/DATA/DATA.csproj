@@ -161,6 +161,8 @@
     <Compile Include="EF\RV_WineryManager.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extention\RV_User.cs" />
+    <Compile Include="Extention\RV_WineryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

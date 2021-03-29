@@ -17,7 +17,6 @@ namespace webAPI.Controllers
         public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
-        /// get winery events
         /// https://localhost:44370/api/Wine?Wineryid=1
         /// </summary>
         /// <returns></returns>
@@ -33,29 +32,89 @@ namespace webAPI.Controllers
             }
         }
 
-
-
-
-
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// https://localhost:44370/api/Wine
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IHttpActionResult Post([FromBody] WineDTO value)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                RV_Wine wine = new RV_Wine()
+                {
+                    wineName = value.wineName,
+                    content = value.content,
+                    price = value.price,
+                    wineImgPath = value.wineImgPath,
+                    wineLabelPath = value.wineLabelPath,
+                    categoryId = value.categoryId,
+                    wineryId = value.wineryId
+                };
+                db.RV_Wine.Add(wine);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
+        /// <summary>
+        /// https://localhost:44370/api/Wine?id=1
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Delete(int id)
         {
+            try
+            {
+                RV_Wine w = db.RV_Wine.SingleOrDefault(wine => wine.wineId == id);
+                if (w != null)
+                {
+                    db.RV_Wine.Remove(w);
+                    db.SaveChanges();
+                    return Ok();
+                }
+                return Content(HttpStatusCode.NotFound,
+                    $"wine with id {id} was not found to delete!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        /// <summary>
+        /// https://localhost:44370/api/Event/id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IHttpActionResult Put(int id, [FromBody] WineDTO value)
         {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            try
+            {
+                RV_Wine w = db.RV_Wine.SingleOrDefault(x => x.wineId == id);
+                if (w != null)
+                {
+                    w.wineName = value.wineName;
+                    w.content = value.content;
+                    w.price = value.price;
+                    w.wineImgPath = value.wineImgPath;
+                    w.wineLabelPath = value.wineLabelPath;
+                    w.categoryId = value.categoryId;
+                    w.wineryId = value.wineryId;
+                    db.SaveChanges();
+                    return Ok(w);
+                }
+                return Content(HttpStatusCode.NotFound,
+                    $"wine with id {id} was not found to update!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

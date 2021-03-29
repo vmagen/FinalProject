@@ -17,7 +17,6 @@ namespace webAPI.Controllers
         public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
-        /// get winery events
         /// https://localhost:44370/api/Service?Wineryid=1
         /// </summary>
         /// <returns></returns>
@@ -34,27 +33,33 @@ namespace webAPI.Controllers
         }
 
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// https://localhost:44370/api/Service
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IHttpActionResult Post([FromBody] ServiceDTO value)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                RV_Service service = new RV_Service()
+                {
+                    serviceName = value.serviceName,
+                    serviceCategory = value.serviceCategory,
+                    price = value.price,
+                    content = value.content,
+                    wineryId = value.wineryId,
+
+                };
+                db.RV_Service.Add(service);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        
-
-        // POST api/<controller>
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
     }
 }
