@@ -48,7 +48,7 @@ const FCEventRegister = (props) => {
               בתאריך {` ${helpers.ReturnDate(props.date)}`}
             </Text>
             <Text style={{ textAlign: 'right' }}>
-              בשעה {` ${helpers.ReturnHour(props.date)}`}
+              בשעה {` ${props.time}`}
             </Text>
 
           </View>

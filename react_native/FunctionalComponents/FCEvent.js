@@ -33,7 +33,7 @@ export default function FCEvent(props) {
                         rounded={true} />
                     <View style={{ flexDirection: 'row' }}>
                         <Text>  {helpers.ReturnDate(props.event.date)}  </Text>
-                        <Text>  {helpers.ReturnHour(props.event.date)} </Text>
+                        <Text>  {props.event.time} </Text>
                         <Text>  {headers.when}:  </Text>
                     </View>
                     <View style={{ alignItems: 'center' }}>
@@ -52,7 +52,7 @@ export default function FCEvent(props) {
                 </View>
             </ScrollView>
             {shouldShow ? (
-            <FCEventRegister id={props.event.id} name={props.event.name} date={props.event.date} hideModal={hideModal} />
+            <FCEventRegister id={props.event.id} name={props.event.name} date={props.event.date} time={props.event.time} hideModal={hideModal} />
         ) : null}
         </SafeAreaView>
     )

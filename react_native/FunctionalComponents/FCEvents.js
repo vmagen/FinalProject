@@ -15,7 +15,7 @@ export default function FCEvents(props) {
                 style={styleSheet.container}
                 >
                 {props.events.map(i => (
-                    <ListItem style={{display:'flex',flex:1, justifyContent: 'flex-end' }} key={i.ID} bottomDivider>
+                    <ListItem style={{display:'flex',flex:1, justifyContent: 'flex-end' }} key={i.eventId} bottomDivider>
                          <ListItem.Content >
                             <MaterialCommunityIcons
                                 name="clipboard-list-outline"
@@ -28,13 +28,13 @@ export default function FCEvents(props) {
                             />
                         </ListItem.Content>
                         <ListItem.Content style={{justifyContent:'flex-end'}}>
-                            <ListItem.Title>{i.Name}</ListItem.Title>
-                            <ListItem.Subtitle>{helpers.ReturnDate(i.Date)}</ListItem.Subtitle>
-                            <ListItem.Subtitle>{helpers.ReturnHour(i.Date)}</ListItem.Subtitle>
+                            <ListItem.Title>{i.eventName}</ListItem.Title>
+                            <ListItem.Subtitle>{helpers.ReturnDate(i.eventDate)}</ListItem.Subtitle>
+                            <ListItem.Subtitle>{i.startTime}</ListItem.Subtitle>
                         </ListItem.Content>
                         <ListItem.Content>
                         <Avatar
-                            source={{ uri: i.Image }}
+                            source={{ uri: i.eventImgPath }}
                             size='large'
                             rounded={true} />
                         </ListItem.Content>

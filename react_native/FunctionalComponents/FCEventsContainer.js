@@ -35,11 +35,12 @@ export default function FCEventsContainer() {
         setEvent({
             id:event.eventId,
             name:event.eventName,
-            date:event.Date,
-            picture:event.Image,
-            description:event.Description,
-            price:event.Price,
-            ticketsLeft:event.TicketsLeft
+            date:event.eventDate,
+            time:event.startTime,
+            picture:event.eventImgPath,
+            description:event.content,
+            price:event.price,
+            ticketsLeft:event.participantsAmount
         })
 
     }
