@@ -45,23 +45,23 @@ function FCWineries() {
       {wineries.map(item => (
         <TouchableOpacity 
         style={{alignItems:'center',padding:10}} 
-        key={item.ID}
+        key={item.wineryId}
         onPress={
           ()=>{
               navigation.navigate('Login',{
                 screen:'winery',
                 params:{
-                  name: item.WineryName,
-                  image: item.WineryImage,
-                  id: item.ID
+                  name: item.wineryName,
+                  image: item.IconImgPath,
+                  id: item.wineryId
                 }
               })
           }
         }>
           <Image
-            source={{ uri: item.WineryImage }}
+            source={{ uri: item.IconImgPath }}
             style={styleSheet.winery} />
-          <Text>{item.WineryName}</Text>
+          <Text>{item.wineryName}</Text>
           <View>
           </View>
         </TouchableOpacity>

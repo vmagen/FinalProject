@@ -45,7 +45,7 @@ export default function FCWineriesCategories() {
               >
                 <TouchableOpacity
                    onPress={() => {
-                    setCategorySelected(subject.id);
+                    setCategorySelected(subject.wineryId);
                     console.log(categorySelected);
                     _toggleShow();
                   }} >

@@ -42,23 +42,23 @@ function FCWines() {
       {wines.map(item => (
         <TouchableOpacity
         style={{ alignItems: 'center', padding: 10 }} 
-        key={item.ID} 
+        key={item.wineId} 
         onPress={
           ()=>{
             navigation.navigate('Login', {
               screen: 'wine',
               params:{
-                name:item.WineName,
-                image:item.WineImg,
-                id: item.ID
+                name:item.wineName,
+                image:item.wineImgPath,
+                id: item.wineId
               }
             });
           }
         }>
           <Image
-            source={{ uri: item.WineImg }}
+            source={{ uri: item.wineImgPath }}
             style={styleSheet.wine} />
-          <Text>{item.WineName}</Text>
+          <Text>{item.wineName}</Text>
         </TouchableOpacity>
 
       ))}

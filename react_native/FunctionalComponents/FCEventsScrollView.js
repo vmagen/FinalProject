@@ -37,14 +37,14 @@ function FCEventsScrollView() {
             pagingEnabled={true}
             style={styleSheet.scrollView}>
             {events.map(item => (
-                <View style={styleSheet.rowEvents} key={item.ID}>
+                <View style={styleSheet.rowEvents} key={item.eventId}>
                     <Image
-                        source={{ uri: item.Image }}
+                        source={{ uri: item.eventImgPath }}
                         style={styleSheet.event} />
                     <View style={{ alignItems: 'center' }}>
-                        <Text>{item.Name}</Text>
+                        <Text>{item.eventName}</Text>
                         <Text>{helpers.ReturnDate(item.Date)}</Text>
-                        <Text>{helpers.ReturnHour(item.Date)}</Text>
+                        <Text>{item.time}</Text>
                     </View>
                 </View>
 
