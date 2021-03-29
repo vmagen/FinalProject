@@ -33,13 +33,14 @@ export default function FCEventsContainer() {
 
     const SetSingleEvent=(event)=>{
         setEvent({
-            id:event.id,
-            name:event.Name,
-            date:event.Date,
-            picture:event.Image,
-            description:event.Description,
-            price:event.Price,
-            ticketsLeft:event.TicketsLeft
+            id:event.eventId,
+            name:event.eventName,
+            date:event.eventDate,
+            time:event.startTime,
+            picture:event.eventImgPath,
+            description:event.content,
+            price:event.price,
+            ticketsLeft:event.participantsAmount
         })
 
     }

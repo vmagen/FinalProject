@@ -31,7 +31,7 @@ export default function FCWineriesCategories() {
           {subjects.map((subject, i) => {
             return (
               <View
-                key={subject.id}
+                key={i}
                 style={{
                   marginTop: cardGap,
                   marginLeft: i % 2 !== 0 ? cardGap : 0,

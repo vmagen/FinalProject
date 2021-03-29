@@ -43,19 +43,19 @@ const FCWineryList = (props) => {
                 navigation.navigate('Login', {
                   screen: 'winery',
                   params: {
-                    name: winery.WineryName,
-                    image: winery.WineryImage,
-                    id: winery.ID
+                    name: winery.wineryName,
+                    image: winery.IconImgPath,
+                    id: winery.wineryId
                   }
                 });
               }
             }>
             <ListItem.Content>
-              <ListItem.Title>{winery.WineryName}</ListItem.Title>
+              <ListItem.Title>{winery.wineryName}</ListItem.Title>
             </ListItem.Content>
             <ListItem.Content>
               <Avatar
-                source={{ uri: winery.WineryImage }}
+                source={{ uri: winery.IconImgPath }}
               />
             </ListItem.Content>
           </ListItem>

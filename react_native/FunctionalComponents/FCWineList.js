@@ -16,8 +16,8 @@ const FCWineList = (props) => {
   }, []);
 
   const getWines = async () => {
-    const test = await fetch(helpers.getApi() + '/wine/' +props.categoryId);
-    console.log(helpers.getApi() + '/wine/' +props.categoryId);
+    //api/Wine/category?categoryId=2
+    const test = await fetch(helpers.getApi() + '/wine/category?categoryId=' +props.categoryId);
     const temp = await test.json();
     setWines(temp);
   };
@@ -35,26 +35,26 @@ const FCWineList = (props) => {
         wines.map((wine, i) => (
           <ListItem
             style={{display:'flex', justifyContent: 'flex-end' }}
-            key={wine.ID}
+            key={wine.wineId}
             bottomDivider
             onPress={
               ()=>{
                 navigation.navigate('Login', {
                   screen: 'wine',
                   params: {
-                    name: wine.WineName,
-                    image: wine.WineImg,
-                    id: wine.ID
+                    name: wine.wineName,
+                    image: wine.wineImgPath,
+                    id: wine.wineId
                   }
                 });
               }
             }>
             <ListItem.Content>
-              <ListItem.Title>{wine.WineName}</ListItem.Title>
+              <ListItem.Title>{wine.wineName}</ListItem.Title>
             </ListItem.Content>
             <ListItem.Content>
               <Avatar
-                source={{ uri: wine.WineImg }}
+                source={{ uri: wine.wineImgPath }}
               />
             </ListItem.Content>
           </ListItem>
