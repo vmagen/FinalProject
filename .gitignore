@@ -1,1 +1,7 @@
 node_modules
+API/.vs/API/v16/.suo
+arvinodesktop/
+*.dll
+*.pdb
+
+*.cache

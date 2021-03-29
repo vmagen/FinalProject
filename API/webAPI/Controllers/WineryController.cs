@@ -8,6 +8,7 @@ using DATA.EF;
 using webAPI.DTO;
 using System.Data.Entity;
 using System.Web.Http.Cors;
+using webAPI.Models;
 
 namespace webAPI.Controllers
 {
@@ -39,6 +40,40 @@ namespace webAPI.Controllers
                 db.RV_Winery.Add(winery);
                 db.SaveChanges();
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
+        /// https://localhost:44370/api/Winery
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(WineryModel.GetWinery(db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
+        ///  https://localhost:44370/api/Winery/area?areaID=2
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/Winery/area/")]
+        public IHttpActionResult GetWineryByArea(int areaID)
+        {
+            try
+            {
+                return Ok(WineryModel.GetWineryByArea(db, areaID));
             }
             catch (Exception ex)
             {

@@ -30,5 +30,9 @@ namespace webAPI.Models
         {
             return db.RV_Winery.Where(e => e.areaId == areaId).ToList();
         }
+
+      
     }
+
+   
 }
