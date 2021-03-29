@@ -23,6 +23,5 @@ namespace DATA.EF
         public byte[] rowVersion { get; set; }
     
         public virtual RV_Event RV_Event { get; set; }
-        public virtual RV_User RV_User { get; set; }
     }
 }

@@ -14,16 +14,7 @@ namespace DATA.EF
     
     public partial class RV_AreaCategory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RV_AreaCategory()
-        {
-            this.RV_Winery = new HashSet<RV_Winery>();
-        }
-    
         public int areaId { get; set; }
         public string areaName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Winery> RV_Winery { get; set; }
     }
 }

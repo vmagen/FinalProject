@@ -172,6 +172,7 @@
     <Compile Include="Controllers\EventCategoryController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ServiceImageController.cs" />
     <Compile Include="Controllers\UploadPictureController.cs" />
@@ -184,9 +185,10 @@
     <Compile Include="DTO\AreaCategoryDTO.cs" />
     <Compile Include="DTO\EventCategoryDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
+    <Compile Include="DTO\GMDTO.cs" />
+    <Compile Include="DTO\GMUserDTO.cs" />
     <Compile Include="DTO\ServiceDTO.cs" />
     <Compile Include="DTO\ServiceImageDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\WineCategoryDTO.cs" />
     <Compile Include="DTO\WineDTO.cs" />
     <Compile Include="DTO\WineryDTO.cs" />

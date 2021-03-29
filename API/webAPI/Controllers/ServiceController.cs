@@ -17,10 +17,26 @@ namespace webAPI.Controllers
         public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
+        /// https://localhost:44370/api/Service
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(ServiceModel.GetServices(db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
         /// https://localhost:44370/api/Service?Wineryid=1
         /// </summary>
         /// <returns></returns>
-        public IHttpActionResult Get(int Wineryid)
+        public IHttpActionResult Get(int Wineryid, ArvinoDbContext db)
         {
             try
             {

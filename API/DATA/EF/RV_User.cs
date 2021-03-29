@@ -17,32 +17,26 @@ namespace DATA.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RV_User()
         {
-            this.RV_Group = new HashSet<RV_Group>();
-            this.RV_Message = new HashSet<RV_Message>();
-            this.RV_NoteFromSystemManager = new HashSet<RV_NoteFromSystemManager>();
-            this.RV_PurchasedEventsByUsers = new HashSet<RV_PurchasedEventsByUsers>();
-            this.RV_ChatRoom = new HashSet<RV_ChatRoom>();
-            this.RV_Group1 = new HashSet<RV_Group>();
+            this.RV_GroupMessages = new HashSet<RV_GroupMessages>();
+            this.RV_GroupMessages1 = new HashSet<RV_GroupMessages1>();
+            this.RV_Winery = new HashSet<RV_Winery>();
         }
     
         public string email { get; set; }
-        public string code { get; set; }
+        public string password { get; set; }
         public Nullable<int> typeId { get; set; }
+        public string Name { get; set; }
+        public string picture { get; set; }
+        public string phone { get; set; }
+        public Nullable<System.DateTime> registrationDate { get; set; }
+        public Nullable<bool> isOlder { get; set; }
     
-        public virtual RV_AppUser RV_AppUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Group> RV_Group { get; set; }
+        public virtual ICollection<RV_GroupMessages> RV_GroupMessages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Message> RV_Message { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_NoteFromSystemManager> RV_NoteFromSystemManager { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
+        public virtual ICollection<RV_GroupMessages1> RV_GroupMessages1 { get; set; }
         public virtual RV_UserType RV_UserType { get; set; }
-        public virtual RV_WineryManager RV_WineryManager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_ChatRoom> RV_ChatRoom { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Group> RV_Group1 { get; set; }
+        public virtual ICollection<RV_Winery> RV_Winery { get; set; }
     }
 }

@@ -17,7 +17,5 @@ namespace DATA.EF
         public int scoreId { get; set; }
         public string scoreName { get; set; }
         public string email { get; set; }
-    
-        public virtual RV_AppUser RV_AppUser { get; set; }
     }
 }

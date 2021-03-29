@@ -17,7 +17,5 @@ namespace DATA.EF
         public int ImgId { get; set; }
         public string ImgPath { get; set; }
         public Nullable<int> wineryId { get; set; }
-    
-        public virtual RV_Winery RV_Winery { get; set; }
     }
 }

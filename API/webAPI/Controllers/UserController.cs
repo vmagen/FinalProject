@@ -36,21 +36,24 @@ namespace webAPI.Controllers
             }
         }
 
-
         /// <summary>
         /// https://localhost:44370/api/User
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public IHttpActionResult Post([FromBody] UserDTO value)
+        public IHttpActionResult Post([FromBody] RV_User value)
         {
-
             try
             {
                 RV_User user = new RV_User()
                 {
                     email = value.email,
-                    code = value.code,
+                    password = value.password,
+                    Name = value.Name,
+                    phone = Convert.ToString(value.phone),
+                    registrationDate = DateTime.Now,
+                    picture = value.picture,
+                    isOlder = value.isOlder,
                     typeId = value.typeId
                 };
                 db.RV_User.Add(user);
@@ -74,6 +77,8 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
+
 
     }
 }

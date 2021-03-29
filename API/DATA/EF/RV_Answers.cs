@@ -18,7 +18,6 @@ namespace DATA.EF
         public int questionId { get; set; }
         public string ans { get; set; }
     
-        public virtual RV_AppUser RV_AppUser { get; set; }
         public virtual RV_Question RV_Question { get; set; }
     }
 }

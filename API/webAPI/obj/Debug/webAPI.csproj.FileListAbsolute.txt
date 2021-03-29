@@ -1,3 +1,6 @@
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Newtonsoft.Json.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\webAPI.dll.config
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\webAPI.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\webAPI.pdb
@@ -54,9 +57,7 @@ C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Antl
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\DATA.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\EntityFramework.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\EntityFramework.SqlServer.dll
-C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Newtonsoft.Json.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Net.Http.Formatting.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.Cors.dll
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.Helpers.dll
@@ -85,7 +86,6 @@ C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Syst
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.Razor.xml
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.WebPages.xml
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.WebPages.Deployment.xml
-C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Antlr3.Runtime.pdb
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\webAPI\obj\Debug\webAPI.csprojAssemblyReference.cache

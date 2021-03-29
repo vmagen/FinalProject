@@ -19,7 +19,8 @@ namespace DATA.EF
         {
             this.RV_KeyWords = new HashSet<RV_KeyWords>();
             this.RV_MessageInGroup = new HashSet<RV_MessageInGroup>();
-            this.RV_User1 = new HashSet<RV_User>();
+            this.RV_UserJoinGroup = new HashSet<RV_UserJoinGroup>();
+            this.RV_GroupMessages = new HashSet<RV_GroupMessages>();
         }
     
         public int groupId { get; set; }
@@ -28,12 +29,13 @@ namespace DATA.EF
         public string groupDescription { get; set; }
         public string creatorEmail { get; set; }
     
-        public virtual RV_User RV_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_KeyWords> RV_KeyWords { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_MessageInGroup> RV_MessageInGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_User> RV_User1 { get; set; }
+        public virtual ICollection<RV_UserJoinGroup> RV_UserJoinGroup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_GroupMessages> RV_GroupMessages { get; set; }
     }
 }

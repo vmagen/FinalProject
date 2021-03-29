@@ -27,7 +27,6 @@ namespace DATA.EF
         }
     
         public virtual DbSet<RV_Answers> RV_Answers { get; set; }
-        public virtual DbSet<RV_AppUser> RV_AppUser { get; set; }
         public virtual DbSet<RV_AreaCategory> RV_AreaCategory { get; set; }
         public virtual DbSet<RV_ChatRoom> RV_ChatRoom { get; set; }
         public virtual DbSet<RV_Comment> RV_Comment { get; set; }
@@ -35,8 +34,9 @@ namespace DATA.EF
         public virtual DbSet<RV_Event> RV_Event { get; set; }
         public virtual DbSet<RV_EventCategory> RV_EventCategory { get; set; }
         public virtual DbSet<RV_Group> RV_Group { get; set; }
+        public virtual DbSet<RV_GroupMessages> RV_GroupMessages { get; set; }
+        public virtual DbSet<RV_GroupMessages1> RV_GroupMessages1 { get; set; }
         public virtual DbSet<RV_KeyWords> RV_KeyWords { get; set; }
-        public virtual DbSet<RV_Message> RV_Message { get; set; }
         public virtual DbSet<RV_MessageInGroup> RV_MessageInGroup { get; set; }
         public virtual DbSet<RV_NoteFromSystemManager> RV_NoteFromSystemManager { get; set; }
         public virtual DbSet<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
@@ -45,9 +45,10 @@ namespace DATA.EF
         public virtual DbSet<RV_Service> RV_Service { get; set; }
         public virtual DbSet<RV_ServiceImage> RV_ServiceImage { get; set; }
         public virtual DbSet<RV_User> RV_User { get; set; }
+        public virtual DbSet<RV_UserJoinChatRoom> RV_UserJoinChatRoom { get; set; }
+        public virtual DbSet<RV_UserJoinGroup> RV_UserJoinGroup { get; set; }
         public virtual DbSet<RV_UserScore> RV_UserScore { get; set; }
         public virtual DbSet<RV_UserType> RV_UserType { get; set; }
-        public virtual DbSet<RV_UserWatchType> RV_UserWatchType { get; set; }
         public virtual DbSet<RV_Wine> RV_Wine { get; set; }
         public virtual DbSet<RV_WineCategory> RV_WineCategory { get; set; }
         public virtual DbSet<RV_Winery> RV_Winery { get; set; }

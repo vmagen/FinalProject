@@ -33,7 +33,6 @@ namespace DATA.EF
         public Nullable<int> ticketsPurchased { get; set; }
     
         public virtual RV_EventCategory RV_EventCategory { get; set; }
-        public virtual RV_Winery RV_Winery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
     }

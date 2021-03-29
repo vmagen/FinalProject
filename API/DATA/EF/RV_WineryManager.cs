@@ -18,7 +18,6 @@ namespace DATA.EF
         public RV_WineryManager()
         {
             this.RV_NoteFromSystemManager = new HashSet<RV_NoteFromSystemManager>();
-            this.RV_Winery = new HashSet<RV_Winery>();
         }
     
         public string email { get; set; }
@@ -29,8 +28,5 @@ namespace DATA.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_NoteFromSystemManager> RV_NoteFromSystemManager { get; set; }
-        public virtual RV_User RV_User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Winery> RV_Winery { get; set; }
     }
 }

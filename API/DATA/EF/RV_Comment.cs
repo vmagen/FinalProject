@@ -21,7 +21,6 @@ namespace DATA.EF
         public int wineId { get; set; }
         public string respondedUserEmail { get; set; }
     
-        public virtual RV_AppUser RV_AppUser { get; set; }
         public virtual RV_Wine RV_Wine { get; set; }
     }
 }

@@ -98,6 +98,22 @@ namespace webAPI.Controllers
         }
 
         /// <summary>
+        /// https://localhost:44370/api/Event
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(EventModel.GetEvents(db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
         /// https://localhost:44370/api/Event?id=1
         /// </summary>
         /// <returns></returns>

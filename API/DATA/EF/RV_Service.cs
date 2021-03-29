@@ -29,6 +29,5 @@ namespace DATA.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_ServiceImage> RV_ServiceImage { get; set; }
-        public virtual RV_Winery RV_Winery { get; set; }
     }
 }

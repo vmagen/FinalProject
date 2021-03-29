@@ -17,16 +17,13 @@ namespace DATA.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RV_ChatRoom()
         {
-            this.RV_Message = new HashSet<RV_Message>();
-            this.RV_User = new HashSet<RV_User>();
+            this.RV_UserJoinChatRoom = new HashSet<RV_UserJoinChatRoom>();
         }
     
         public int chatRoomId { get; set; }
         public string title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Message> RV_Message { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_User> RV_User { get; set; }
+        public virtual ICollection<RV_UserJoinChatRoom> RV_UserJoinChatRoom { get; set; }
     }
 }

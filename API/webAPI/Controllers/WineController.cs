@@ -17,9 +17,45 @@ namespace webAPI.Controllers
         public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
-        /// https://localhost:44370/api/Wine?Wineryid=1
+        /// https://localhost:44370/api/Wine
         /// </summary>
         /// <returns></returns>
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                return Ok(WineModel.GetAllWines(db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
+        ///  https://localhost:44370/api/Wine/category?categoryId=2
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/Wine/category/")]
+        public IHttpActionResult GetWineByCategory(int categoryId)
+        {
+            try
+            {
+                return Ok(WineModel.GetWineByCategory(categoryId, db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
+        /// https://localhost:44370/api/Wine/Wineryid?Wineryid=1
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/Wine/Wineryid/")]
         public IHttpActionResult Get(int Wineryid)
         {
             try
@@ -86,7 +122,7 @@ namespace webAPI.Controllers
         }
 
         /// <summary>
-        /// https://localhost:44370/api/Event/id
+        /// https://localhost:44370/api/Wine/id
         /// </summary>
         /// <param name="id"></param>
         /// <param name="value"></param>

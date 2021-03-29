@@ -83,9 +83,6 @@
     <Compile Include="EF\RV_Answers.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\RV_AppUser.cs">
-      <DependentUpon>ArvinoModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\RV_AreaCategory.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
@@ -107,10 +104,13 @@
     <Compile Include="EF\RV_Group.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\RV_KeyWords.cs">
+    <Compile Include="EF\RV_GroupMessages.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\RV_Message.cs">
+    <Compile Include="EF\RV_GroupMessages1.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RV_KeyWords.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_MessageInGroup.cs">
@@ -137,13 +137,16 @@
     <Compile Include="EF\RV_User.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\RV_UserJoinChatRoom.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RV_UserJoinGroup.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\RV_UserScore.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_UserType.cs">
-      <DependentUpon>ArvinoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\RV_UserWatchType.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_Wine.cs">

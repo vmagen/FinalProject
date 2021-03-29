@@ -21,7 +21,6 @@ namespace DATA.EF
         public Nullable<int> groupId { get; set; }
         public string senderEmail { get; set; }
     
-        public virtual RV_AppUser RV_AppUser { get; set; }
         public virtual RV_Group RV_Group { get; set; }
     }
 }

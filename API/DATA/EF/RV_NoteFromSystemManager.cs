@@ -22,7 +22,6 @@ namespace DATA.EF
         public string systemManagerEmail { get; set; }
         public string targetEmail { get; set; }
     
-        public virtual RV_User RV_User { get; set; }
         public virtual RV_WineryManager RV_WineryManager { get; set; }
     }
 }
