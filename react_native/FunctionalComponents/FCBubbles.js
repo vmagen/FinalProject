@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, Animated, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
 import helpers from '../helpers/helperFunctions';
-import { SafeAreaView } from 'react-native';
+import { ScrollView } from 'react-native';
 import FCSplashScreen from './FCSplashScreen';
 
 export default function FCBubbles(props) {
@@ -27,7 +27,7 @@ export default function FCBubbles(props) {
   const cardGap = 16;
 
   return (
-    <SafeAreaView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 20, marginBottom: 50, marginLeft: 20, marginRight: 20 }}>
         {props.myGroups.map((subject, i) => {
           const circleWidth = helpers.ReturnRandomData(sizes);
@@ -83,7 +83,7 @@ export default function FCBubbles(props) {
           <FCSplashScreen id={id} name={name} description={description} picture={picture} hideModal={hideModal} />
         ) : null}
       </View>
-    </SafeAreaView>
+    </ScrollView>
   )
 }
 

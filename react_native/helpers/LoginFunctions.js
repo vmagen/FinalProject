@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import helpers from './helperFunctions';
 
 const loginFunctions = {
@@ -20,8 +21,18 @@ const loginFunctions = {
           }
         })
     },
-    
-
+    isUserInAsyncStorage:async function(){
+      const res = await  AsyncStorage.getItem('login');
+      if (res !== null)
+      {
+        const data= await JSON.parse(res);
+        return data;
+      }
+      else
+      {
+          return null;
+      }
+    }
 }
 
 export default loginFunctions;

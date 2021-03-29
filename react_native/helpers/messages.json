@@ -10,6 +10,7 @@
      "searchInArvino":"חפש באתר",
      "searchEvents":"חפש ארועים",
      "searchInWines":"חפש יינות",
+     "searchInWineries":"חפש יקבים",
      "redWines":"אדומים",
      "whiteWines":"לבנים",
      "roseWines":"רוזה",
@@ -30,7 +31,16 @@
      "continueWithFb":"המשך לרישום עם פייסבוק",
      "register":"הירשם",
      "buildYourProfile":"בונים לך פרופיל",
-     "skip":"דלג"
+     "skip":"דלג",
+     "where":"היכן:",
+     "when":"מתי",
+     "DetailsOnEvent":"פרטים על הארוע",
+     "leftWith":"נשארו",
+     "tickets":"כרטיסים",
+     "insertFullName":"שם מלא*",
+     "insertPhone":"מספר טלפון*",
+     "insertNumPeople":"מספר אנשים*",
+     "registeration":"הרשמה"
     }
   
   

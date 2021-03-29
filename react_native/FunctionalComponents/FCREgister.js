@@ -1,17 +1,18 @@
 import React, { isValidElement } from 'react'
-import { View, SafeAreaView, Alert } from 'react-native';
+import { View, TextInput, SafeAreaView, StyleSheet, Alert, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 import headers from '../helpers/messages.json';
 import FCHeader from './FCHeader';
-import StyleSheet from '../Pages/PageStyle';
+import myStyles from '../Pages/PageStyle';
 import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
-import FCFacebookLogin1 from './FCFacebookLogin1';
+import loginFunctions from '../helpers/LoginFunctions';
+import FCFacebookLogin from './FCFacebookLogin';
 
-export default function FCREgister({  }) {
-  const navigation= useNavigation();
+export default function FCREgister({ }) {
+  const navigation = useNavigation();
   const [user, setUser] = React.useState({
     name: '',
     email: '',
@@ -99,7 +100,7 @@ export default function FCREgister({  }) {
         await AsyncStorage.removeItem('login');
         await AsyncStorage.setItem('login', JSON.stringify(user))
           .then(() => console.log("user saved!", user));
-          navigation.push('Login', { screen: 'questionere' });
+        navigation.push('Login', { screen: 'questionere' });
 
       } //user exists
       else {
@@ -115,14 +116,7 @@ export default function FCREgister({  }) {
 
   //http://localhost:64023/api/user/email?email=asaf@gmail.com
   const checkEmailExists = async () => {
-    await fetch(helpers.getApi() + 'user/email?email=' + user.email,
-      {
-        method: 'GET',
-        headers: new Headers({
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Accept': 'application/json; charset=UTF-8',
-        })
-      })
+
   }
 
   const goToLoginPage = () => {
@@ -151,68 +145,82 @@ export default function FCREgister({  }) {
       })
       .then(res => {
         return JSON.stringify(res);
+      }, (error) => {
+        alert(error);
       })
-      .then(
-        (result) => {
-          //console.log("result = ", result);
-        },
-        (error) => {
-          console.log("err post=", error);
-        });
+
   }
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff'
+    },
+    inner: {
+      padding: 24,
+      flex: 1,
+      justifyContent: "space-around"
+    },
+    textInput: {
+      height: 36,
+      borderColor: "#000000",
+      borderBottomWidth: 1,
+      marginBottom: 20,
+      textAlign: 'right'
+    },
+    btnContainer: {
+      backgroundColor: "white",
+      marginTop: 12
+    }
+  });
 
   return (
-    <SafeAreaView style={StyleSheet.container}>
-      <FCHeader />
-      <View >
-        <Text h4 style={StyleSheet.h4Text}>{headers.createAccount}</Text>
-      </View>
-      <View>
-        <FCFacebookLogin1 />
-      </View>
-      <Divider style={{ marginTop: 10 }} />
-      <View>
-        <Input
-          placeholder={headers.insertName}
-          rightIcon={{ type: 'font-awesome', name: 'user' }}
-          inputContainerStyle={StyleSheet.input}
-          onChangeText={value => { handleNameChange(value) }}
-        />
-        <Input
-          placeholder={headers.insertEmail}
-          rightIcon={{ type: 'font-awesome', name: 'envelope' }}
-          inputContainerStyle={StyleSheet.input}
-          onChangeText={value => { handleEmailChange(value) }}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
-        />
-        <Input
-          placeholder={headers.insertPassword}
-          rightIcon={{ type: 'font-awesome', name: 'lock' }}
-          inputContainerStyle={StyleSheet.input}
-          onChangeText={value => { handlePasswordChange(value) }}
-        />
-        <Input
-          placeholder={headers.insertPasswordSecond}
-          rightIcon={{ type: 'font-awesome', name: 'lock' }}
-          inputContainerStyle={StyleSheet.input}
-          onChangeText={value => { handleConfirmPasswordChange(value) }}
+        <View style={styles.inner}>
+          <Text h4 style={myStyles.h4Text}>{headers.registeration}</Text>
+          <FCFacebookLogin />
+          <Divider />
+          <TextInput
+            placeholder={headers.insertName}
+            rightIcon={{ type: 'font-awesome', name: 'user' }}
+            style={styles.textInput}
+            onChangeText={value => { handleNameChange(value) }} />
+          <TextInput
+            placeholder={headers.insertEmail}
+            rightIcon={{ type: 'font-awesome', name: 'envelope' }}
+            style={styles.textInput}
+            onChangeText={value => { handleEmailChange(value) }} />
+          <TextInput
+            placeholder={headers.insertPassword}
+            rightIcon={{ type: 'font-awesome', name: 'lock' }}
+            style={styles.textInput}
+            onChangeText={value => { handlePasswordChange(value) }} />
+          <TextInput
+            placeholder={headers.insertPasswordSecond}
+            rightIcon={{ type: 'font-awesome', name: 'lock' }}
+            style={styles.textInput}
+            onChangeText={value => { handleConfirmPasswordChange(value) }} />
+          <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
+            <Button
+              title={headers.createAccount}
+              buttonStyle={myStyles.button}
+              onPress={handleSubmitNewUser}
+            />
+            <Text h5>{headers.alreadyHave}</Text>
+            <Button
+              title={headers.login}
+              buttonStyle={myStyles.button}
+              onPress={goToLoginPage}
+            />
+          </View>
 
-        />
-        <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center' }}>
-          <Button
-            title={headers.createAccount}
-            buttonStyle={StyleSheet.button}
-            onPress={handleSubmitNewUser}
-          />
-          <Text h5>{headers.alreadyHave}</Text>
-          <Button
-            title={headers.login}
-            buttonStyle={StyleSheet.button}
-            onPress={goToLoginPage}
-          />
         </View>
-      </View>
-    </SafeAreaView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   )
+
 }

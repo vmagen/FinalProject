@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import {
+  StyleSheet,
   ScrollView,
 } from 'react-native';
 import { ListItem, Avatar, Icon } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
-import styleSheet from '../Pages/PageStyle';
 import { useNavigation } from '@react-navigation/native';
 
-const FCWineList = (props) => {
-  const [wines, setWines] = useState([]);
+
+const FCWineryList = (props) => {
+  const [wineries, setWineries] = useState([]);
   const navigation= useNavigation();
 
   useEffect(() => {
-    getWines();
+    getWineries();
   }, []);
 
-  const getWines = async () => {
-    const test = await fetch(helpers.getApi() + '/wine/' +props.categoryId);
-    console.log(helpers.getApi() + '/wine/' +props.categoryId);
+  const getWineries = async () => {
+    const test = await fetch(helpers.getApi() + '/winery/' + props.categoryId);
+    console.log(helpers.getApi() + '/winery/' + props.categoryId);
     const temp = await test.json();
-    setWines(temp);
+    setWineries(temp);
   };
 
   return (
-    <ScrollView style={styleSheet.container}>
+    <ScrollView>
       <Icon
         onPress={props.toggleShow}
         reverse
@@ -32,29 +33,29 @@ const FCWineList = (props) => {
         color='#691A1A'
       />
       {
-        wines.map((wine, i) => (
+        wineries.map((winery, i) => (
           <ListItem
-            style={{display:'flex', justifyContent: 'flex-end' }}
-            key={wine.ID}
+            style={{ justifyContent: 'flex-end' }}
+            key={winery.ID}
             bottomDivider
             onPress={
               ()=>{
                 navigation.navigate('Login', {
-                  screen: 'wine',
+                  screen: 'winery',
                   params: {
-                    name: wine.WineName,
-                    image: wine.WineImg,
-                    id: wine.ID
+                    name: winery.WineryName,
+                    image: winery.WineryImage,
+                    id: winery.ID
                   }
                 });
               }
             }>
             <ListItem.Content>
-              <ListItem.Title>{wine.WineName}</ListItem.Title>
+              <ListItem.Title>{winery.WineryName}</ListItem.Title>
             </ListItem.Content>
             <ListItem.Content>
               <Avatar
-                source={{ uri: wine.WineImg }}
+                source={{ uri: winery.WineryImage }}
               />
             </ListItem.Content>
           </ListItem>
@@ -64,4 +65,5 @@ const FCWineList = (props) => {
   );
 };
 
-export default FCWineList;
+export default FCWineryList;
+

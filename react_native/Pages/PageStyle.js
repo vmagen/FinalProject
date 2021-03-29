@@ -30,11 +30,16 @@ export default StyleSheet.create({
     elevation: 5,
 
   },
+  inner: {
+    padding: 24,
+    flex: 1,
+    justifyContent: "space-around"
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'center',
-    marginTop: 30
+    marginTop: 10
 
   },
   rowEvents: {
@@ -49,7 +54,7 @@ export default StyleSheet.create({
   },
   h4Text: {
     textAlign: 'right',
-    padding: 20,
+    padding: 10,
     fontWeight: 'bold'
   },
   event: {
@@ -85,37 +90,30 @@ export default StyleSheet.create({
     height: 44,
     borderRadius: 44 / 2,
   },
-  inButtonActive: {
+  textButton:{
     textAlign: 'center',
-    color: '#691A1A',
     padding: 10,
     fontWeight: 'bold'
   },
+  inButtonActive: {
+    color: '#691A1A',
+  },
   inButtonInActive: {
-    textAlign: 'center',
     color: 'white',
-    padding: 10,
-    fontWeight: 'bold',
+  },
+  toggleBox:{
+    width: 172,
+    height: 40,
+    borderStyle: 'solid',
+    borderWidth: 1,
   },
   toggleBoxActive: {
-    width: 172,
-    height: 40,
     backgroundColor: '#691A1A',
     borderColor: '#691A1A',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderTopRightRadius: 5,
-    borderBottomRightRadius: 5
   },
   toggleBoxInActive: {
-    width: 172,
-    height: 40,
     backgroundColor: 'white',
     borderColor: '#691A1A',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderTopLeftRadius: 5,
-    borderBottomLeftRadius: 5
   },
   button: {
     backgroundColor: '#691A1A',
@@ -124,9 +122,9 @@ export default StyleSheet.create({
     margin: 15
   },
   input: {
-    width: 250,
-    alignSelf: 'center',
-    textAlign: 'right'
+    height: 40,
+    borderColor: "#000000",
+    marginBottom: 10
   },
   textInput: {
     flex: 1,
