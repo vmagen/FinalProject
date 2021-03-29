@@ -4,13 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using DATA.EF;
-using webAPI.Models;
 using webAPI.DTO;
-using System.Threading.Tasks;
-using System.IO;
-using System.Web;
+using System.Data.Entity;
+using System.Web.Http.Cors;
 
 namespace webAPI.Controllers
 {
@@ -22,19 +19,31 @@ namespace webAPI.Controllers
         /// <summary>
         /// https://localhost:44370/api/Winery
         /// </summary>
+        /// <param name="value"></param>
         /// <returns></returns>
-        public IHttpActionResult Get()
+        public IHttpActionResult Post([FromBody] RV_Winery value)
         {
             try
             {
-                return Ok(WineryModel.GetWinery(db));
+                RV_Winery winery = new RV_Winery()
+                {
+                    wineryName = value.wineryName,
+                    wineryAddress = value.wineryAddress,
+                    wineryEmail = value.wineryEmail,
+                    phone = value.phone,
+                    statusType = value.statusType,
+                    IconImgPath = value.IconImgPath,
+                    wineryManagerEmail = value.wineryManagerEmail,
+                    areaId = value.areaId
+                };
+                db.RV_Winery.Add(winery);
+                db.SaveChanges();
+                return Ok();
             }
             catch (Exception ex)
             {
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
-
-
     }
 }

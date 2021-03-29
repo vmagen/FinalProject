@@ -181,7 +181,6 @@
     <Compile Include="Controllers\WineCategoryController.cs" />
     <Compile Include="Controllers\WineController.cs" />
     <Compile Include="Controllers\WineryController.cs" />
-    <Compile Include="Controllers\WineryManagerController.cs" />
     <Compile Include="DTO\AreaCategoryDTO.cs" />
     <Compile Include="DTO\EventCategoryDTO.cs" />
     <Compile Include="DTO\EventDTO.cs" />
@@ -191,8 +190,6 @@
     <Compile Include="DTO\ServiceImageDTO.cs" />
     <Compile Include="DTO\WineCategoryDTO.cs" />
     <Compile Include="DTO\WineDTO.cs" />
-    <Compile Include="DTO\WineryDTO.cs" />
-    <Compile Include="DTO\WineryManagerDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,7 +201,6 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\WineCategoryModel.cs" />
     <Compile Include="Models\WineModel.cs" />
-    <Compile Include="Models\WineryManagerModel.cs" />
     <Compile Include="Models\WineryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

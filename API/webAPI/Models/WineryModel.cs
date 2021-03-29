@@ -10,9 +10,9 @@ namespace webAPI.Models
 {
     public class WineryModel
     {
-        public static List<WineryDTO> GetWinery(ArvinoDbContext db)
+        public static List<RV_Winery> GetWinery(ArvinoDbContext db)
         {
-            return db.RV_Winery.Select(e => new WineryDTO()
+            return db.RV_Winery.Select(e => new RV_Winery()
             {
                 wineryId = e.wineryId,
                 wineryName = e.wineryName,
