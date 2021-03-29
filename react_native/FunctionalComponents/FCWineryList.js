@@ -17,8 +17,9 @@ const FCWineryList = (props) => {
   }, []);
 
   const getWineries = async () => {
-    const test = await fetch(helpers.getApi() + '/winery/' + props.categoryId);
-    console.log(helpers.getApi() + '/winery/' + props.categoryId);
+    //api/Winery/area?areaID=2
+    const test = await fetch(helpers.getApi() + '/winery/area?areaID=' + props.categoryId);
+    console.log(helpers.getApi() + '/winery/area?areaID=' + props.categoryId);
     const temp = await test.json();
     setWineries(temp);
   };

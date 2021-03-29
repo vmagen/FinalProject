@@ -8,7 +8,6 @@ import { Input, Button } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
-import loginFunctions from '../helpers/LoginFunctions';
 import FCFacebookLogin from './FCFacebookLogin';
 
 export default function FCREgister({ }) {

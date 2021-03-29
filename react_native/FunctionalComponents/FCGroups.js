@@ -20,7 +20,7 @@ function FCGroups() {
   }, [])
 
   function getGroups() {
-    fetch(helpers.getApi() + 'groups',
+    fetch(helpers.getApi() + 'group',
       {
         method: 'GET',
         headers: new Headers({

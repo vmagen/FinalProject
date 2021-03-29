@@ -35,10 +35,10 @@ export default function FCBubbles(props) {
             <TouchableOpacity
               onPress={() => {
                 setShouldShow(true)
-                setName(subject.name)
-                setDescription(subject.description)
-                setPicture(subject.picture)
-                setId(subject.ID);
+                setName(subject.groupName)
+                setDescription(subject.groupDescription)
+                setPicture(subject.ImgPath)
+                setId(subject.groupId);
               }}
               key={i}
               style={{
@@ -54,7 +54,7 @@ export default function FCBubbles(props) {
               <View>
               </View>
               <Image
-                source={{ uri: subject.picture }}
+                source={{ uri: subject.ImgPath }}
                 style={{
                   padding: 10,
                   margin: helpers.ReturnRandomNumber(cardGap),

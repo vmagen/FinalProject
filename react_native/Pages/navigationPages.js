@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import SignUpScreen from '../FunctionalComponents/FCRegister';
+import SignUpScreen from '../FunctionalComponents/FCREgister';
 import FCProfile from '../FunctionalComponents/FCProfile';
 import FCLogin from '../FunctionalComponents/FCLogin';
 import FCQuestionere from '../FunctionalComponents/FCQuestionere';
