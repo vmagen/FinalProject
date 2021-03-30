@@ -22,8 +22,8 @@ export function FCChat(props) {
     }
   }, [])
 
-  const getlastDate=()=>{
-   console.log(messages);
+  const getlastDate = () => {
+    console.log(messages);
   }
 
   const getUser = async () => {
@@ -46,13 +46,45 @@ export function FCChat(props) {
     const result = await fetch(helpers.getApi() + 'Messages/' + props.groupID);
     const data = await result.json();
     setMessages(data);
-  
+    const lastM = data[0];
+    console.log(lastM);
+
   }
 
   const onSend = (newMessages = []) => {
     setMessages((prevMessages) => GiftedChat.append(prevMessages, newMessages));
-    console.log(lastDate);
+    SaveMessage(newMessages);
   };
+
+  const SaveMessage = async (newMessages) => {
+    let newMsg =
+    {
+      "groupId":props.groupID,
+        "createdAt": new Date().toLocaleString(),
+        "text": newMessages[0].text,
+        "user": {
+            "_id": user._id,
+           
+        }
+    };
+    console.log(newMsg);
+
+    await fetch(helpers.getApi() + '/Messages',
+      {
+        method: 'POST',
+        body: JSON.stringify(newMsg),
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
+      })
+      .then(res => {
+        return JSON.stringify(res);
+      }, (error) => {
+        alert(error);
+      })
+
+  }
 
 
   return (

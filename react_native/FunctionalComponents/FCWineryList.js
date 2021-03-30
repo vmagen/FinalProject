@@ -37,7 +37,7 @@ const FCWineryList = (props) => {
         wineries.map((winery, i) => (
           <ListItem
             style={{ justifyContent: 'flex-end' }}
-            key={winery.ID}
+            key={winery.wineryId}
             bottomDivider
             onPress={
               ()=>{
