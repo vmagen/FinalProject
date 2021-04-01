@@ -7,6 +7,7 @@ import FCEventsScrollView from '../FunctionalComponents/FCEventsScrollView';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FCCamera from '../FunctionalComponents/FCCamera';
 import FCEventsContainer from '../FunctionalComponents/FCEventsContainer';
+import FCQuestionere from '../FunctionalComponents/FCQuestionere';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -32,7 +33,7 @@ const MaterialTabPage = () => {
           ),
         }}
       />
-      <Tab.Screen name="Camera" component={FCCamera}
+      <Tab.Screen name="Camera" component={FCQuestionere}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="camera" color={color} size={26} />

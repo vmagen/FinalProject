@@ -127,8 +127,7 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   textInput: {
-    flex: 1,
-    paddingLeft: 10,
+    marginTop: 10,
     color: '#691A1A',
   },
   footer: {

@@ -7,7 +7,6 @@ import styleSheet from '../Pages/PageStyle';
 import messages from '../helpers/messages.json';
 import FCBubbles from './FCBubbles';
 import helpers from '../helpers/helperFunctions';
-import { ScrollView } from 'react-native-gesture-handler';
 
 
 function FCGroups() {

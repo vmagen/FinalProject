@@ -17,7 +17,7 @@ export default function FCREgister({ }) {
     email: '',
     password: '',
     confirmPassword: '',
-    picture: 'https://proj.ruppin.ac.il/bgroup15/prod/finalPics/Ron.jpg',
+    picture: 'https://proj.ruppin.ac.il/bgroup15/prod/FinalPics/ARVINO.png',
     isEighteen: false, //over18
     isValidName: false, //name validation
     isValidEmail: false, //email validation
@@ -113,27 +113,23 @@ export default function FCREgister({ }) {
     }
   }
 
-  //http://localhost:64023/api/user/email?email=asaf@gmail.com
-  const checkEmailExists = async () => {
-
-  }
-
   const goToLoginPage = () => {
-    //navigation.navigate('Login', { screen: 'login' });
+   
     navigation.navigate("login");
   }
 
   const AddToDB = async () => {
     let newUser =
     {
-      "name": user.name,
+      "Name": user.name,
       "password": user.password,
       "email": user.email,
       "isOlder": 1,
-      "picture": user.picture
+      "picture": user.picture,
+      "typeId":3
     };
 
-    await fetch(helpers.getApi() + '/Winery',
+    await fetch(helpers.getApi() + '/User',
       {
         method: 'POST',
         body: JSON.stringify(newUser),

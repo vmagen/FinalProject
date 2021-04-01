@@ -8,15 +8,18 @@ import messages from '../helpers/messages.json';
 import styleSheet from '../Pages/PageStyle';
 
 const FCAvatar = (props) => {
-   const navigator = useNavigation();
+   const navigation = useNavigation();
    const [picture, setPicture] = useState('https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg');
    const [name, setName] = useState(messages.register);
    const [isPremium, setisPremium] = useState(true);
    const [isLogin, setisLogin] = useState(false);
 
    useEffect(() => {
-      getData();
-   }, []);
+     navigation.addListener(()=>{
+         setName(name);
+     });
+      if(!isLogin){ getData()}
+   }, [name]);
 
    const getData = async () => {
       try {
@@ -26,9 +29,12 @@ const FCAvatar = (props) => {
             const temp = await JSON.parse(jsonValue);
             setPicture(temp.picture);
             setName(temp.name);
+            setisLogin(true);
             return jsonValue != null ? JSON.parse(jsonValue) : null;
          }
          else {
+            console.log("not logged in!");
+            console.log(name);
             return null;
          }
       } catch (e) {
@@ -38,16 +44,16 @@ const FCAvatar = (props) => {
 
    const navigateToPage = () => {
       if (name === messages.register) {
-         navigator.navigate('Login', { screen: 'signup' });
+         navigation.navigate('Login', { screen: 'signup' });
       }
       else {
-         navigator.navigate('Login', { screen: 'profile' });
+         navigation.navigate('Login', { screen: 'profile' });
       }
    }
 
    return (
       <TouchableOpacity onPress={navigateToPage}>
-         <View style={{ alignItems: 'center', marginLeft: 50, marginTop: 40 }}>
+         <View style={{ alignItems: 'center', marginLeft: 50, marginTop: 20 }}>
             <Avatar
                rounded={true}
                size="medium"
@@ -58,7 +64,7 @@ const FCAvatar = (props) => {
                }}
                icon={{ name: 'user', type: 'font-awesome' }}
             />
-            <Text style={[styleSheet.textInput, { margin: 10 }]}>{name}</Text>
+            <Text style={[styleSheet.textInput]}>{name}</Text>
          </View>
       </TouchableOpacity>
    )

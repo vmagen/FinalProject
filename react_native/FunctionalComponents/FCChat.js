@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect, setInterval } from 'react'
-import { GiftedChat } from 'react-native-gifted-chat'
+import { Image } from 'react-native';
+import { GiftedChat , Actions} from 'react-native-gifted-chat'
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -22,9 +23,6 @@ export function FCChat(props) {
     }
   }, [])
 
-  const getlastDate = () => {
-    console.log(messages);
-  }
 
   const getUser = async () => {
     const myUser = await AsyncStorage.getItem('login');
@@ -86,7 +84,6 @@ export function FCChat(props) {
 
   }
 
-
   return (
     <GiftedChat
       messages={messages}
@@ -95,11 +92,12 @@ export function FCChat(props) {
       onSend={onSend}
       user={user}
       alignTop
-      alwaysShowSend
+      alwaysShowSend={true}
       scrollToBottom
       showUserAvatar
       bottomOffset={26}
       onPressAvatar={console.log}
+      renderActions={renderActions}
       isCustomViewBottom={true}
       messagesContainerStyle={{ backgroundColor: 'white' }}
       parsePatterns={(linkStyle) => [
@@ -112,3 +110,35 @@ export function FCChat(props) {
     />
   )
 }
+
+export const renderActions = (props) => (
+  <Actions
+    {...props}
+    containerStyle={{
+      width: 44,
+      height: 44,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: 4,
+      marginRight: 4,
+      marginBottom: 0,
+    }}
+    icon={() => (
+      <Image
+        style={{ width: 26, height: 26 }}
+        source={{
+          uri: 'http://proj.ruppin.ac.il/bgroup15/prod/FinalPics/paperclip.png',
+        }}
+      />
+    )}
+    options={{
+      'Choose From Library': () => {
+        console.log('Choose From Library');
+      },
+      Cancel: () => {
+        console.log('Cancel');
+      },
+    }}
+    optionTintColor="#222B45"
+  />
+);

@@ -3,15 +3,15 @@ import { Text, View, Button, TextInput, KeyboardAvoidingView, TouchableWithoutFe
 import styleSheet from '../Pages/PageStyle'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native';
 import FCHeader from './FCHeader';
 
 const FCProfile = () => {
     const navigation = useNavigation();
 
     const logOut = async () => {
-        await AsyncStorage.removeItem('login');
+       const temp= await AsyncStorage.removeItem('login');
         alert('user Logged out ! hope to see you soon!');
+        console.log("logged out", temp);
         navigation.navigate('Home');
     }
 

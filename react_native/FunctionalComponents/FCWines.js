@@ -5,7 +5,7 @@ import helpers from '../helpers/helperFunctions';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
-function FCWines() {
+function FCWines(props) {
   const [wines, setWines] = useState([]);
   const navigation= useNavigation();
 
