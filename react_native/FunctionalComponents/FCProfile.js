@@ -12,7 +12,7 @@ const FCProfile = () => {
        const temp= await AsyncStorage.removeItem('login');
         alert('user Logged out ! hope to see you soon!');
         console.log("logged out", temp);
-        navigation.navigate('Home');
+        navigation.push('waitPage');
     }
 
     return (

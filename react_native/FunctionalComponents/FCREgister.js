@@ -99,7 +99,9 @@ export default function FCREgister({ }) {
         await AsyncStorage.removeItem('login');
         await AsyncStorage.setItem('login', JSON.stringify(user))
           .then(() => console.log("user saved!", user));
-        navigation.push('Login', { screen: 'questionere' });
+        navigation.navigate('Login', { screen: 'questionere' ,params:{
+          userInfo: user
+        } });
 
       } //user exists
       else {

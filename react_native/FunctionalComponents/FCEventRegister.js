@@ -15,13 +15,13 @@ import messages from '../helpers/messages.json';
 import styleSheet from '../Pages/PageStyle';
 import helpers from '../helpers/helperFunctions';
 import bitLogo from '../assets/BIT_logo.jpg'
-import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const FCEventRegister = (props) => {
   const { colors } = useTheme();
-
+  const navigation = useNavigation();
   return (
-    <View style={[styles.container,{marginBottom:100}]}>
+    <View style={[styles.container, { marginBottom: 100 }]}>
 
       <Animatable.View
         style={[styles.footer, {
@@ -71,13 +71,14 @@ const FCEventRegister = (props) => {
             placeholder={messages.insertNumPeople}
             inputContainerStyle={styleSheet.input}
           />
-          <Image
-            source={bitLogo}
-            style={{ width: 70, height: 70, alignSelf: 'center' }}
-            onPress={() => {
-              Alert.alert("תודה שנרשמת!")
-            }}
-          />
+          <TouchableOpacity
+            onPress={props.hideModal}>
+            <Image
+              source={bitLogo}
+              style={{ width: 70, height: 70, alignSelf: 'center' }}
+
+            />
+          </TouchableOpacity>
         </View>
       </Animatable.View>
     </View>

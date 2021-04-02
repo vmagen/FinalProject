@@ -67,7 +67,7 @@ export default function FCEventsContainer() {
     return (
         <View style={styleSheet.container}>
             <FCHeader />
-            <Text h2 style={styleSheet.h4Text}>{headers.upcomingEvents}</Text>
+            <Text h4 style={styleSheet.h4Text}>{headers.upcomingEvents}</Text>
             <FCSearch placeholder={headers.searchEvents} />
             {showSingle ? 
             <FCEvents toggleShow={toggleShow} events={events} setSingleEvent={SetSingleEvent}/>

@@ -40,7 +40,14 @@
      "insertFullName":"שם מלא*",
      "insertPhone":"מספר טלפון*",
      "insertNumPeople":"מספר אנשים*",
-     "registeration":"הרשמה"
+     "registeration":"הרשמה",
+     "services":"עוד דברים לעשות ביקבים",
+     "thankYou":"תודה...",
+     "prepareQuestions":"כמה שניות אנחנו מכינים שאלון על מנת להכיר אותך טוב יותר...",
+     "countinue":"לחץ להמשיך...",
+     "know":"מכיר",
+     "dontKnow":"לא מכיר",
+     "swipeLeftRight":"החלק ימינה אם אתה מזהה  שמאלה אם לא!"
     }
   
   

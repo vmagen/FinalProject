@@ -28,7 +28,8 @@ const FCLogin = () => {
       if (data.password == user.password) {
         await AsyncStorage.setItem('login', JSON.stringify(data));
         
-        navigation.navigate('Home', options={isLogin:true});
+        navigation.navigate('waitPage');
+
       }
       else {
         Alert.alert("incorrect password.")

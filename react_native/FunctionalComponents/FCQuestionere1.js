@@ -1,81 +1,178 @@
-'use strict';
- 
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
- 
-class SomeComponent extends Component {
- 
-  constructor(props) {
-    super(props);
-    this.state = {
-      myText: 'I\'m ready to get swiped!',
-      gestureName: 'none',
-      backgroundColor: '#fff'
-    };
+import React, { useEffect, useState } from "react";
+import { StyleSheet,  View, Image } from "react-native";
+import { Text, Button } from 'react-native-elements'
+import SwipeCards from "react-native-swipe-cards-deck";
+import helpers from '../helpers/helperFunctions';
+import messages from '../helpers/messages.json';
+import myStyles from '../Pages/PageStyle';
+import { useNavigation } from '@react-navigation/native';
+
+function Card({ data }) {
+  return (
+    <View style={[styles.card, { backgroundColor: data.backgroundColor }]}>
+      <Text h4 style={{textAlign:'right'}}>{messages.swipeLeftRight}</Text>
+      <Image
+        source={{ uri: data.wineImgPath }}
+        style={myStyles.wine} />
+      <Text>{data.wineName}</Text>
+      <Text>{data.wineryName}</Text>
+    </View>
+  );
+}
+
+function StatusCard({ toShow }) {
+  const [show, setshow] = useState(false)
+
+  useEffect(() => {
+   setshow(toShow);
+   console.log("show:", show);
+  }, [show])
+
+  const navigation = useNavigation();
+
+  const countinueToMainPage = () => {
+    navigation.navigate('Home');
   }
- 
-  onSwipeUp(gestureState) {
-    this.setState({myText: 'You swiped up!'});
-  }
- 
-  onSwipeDown(gestureState) {
-    this.setState({myText: 'You swiped down!'});
-  }
- 
-  onSwipeLeft(gestureState) {
-    this.setState({myText: 'You swiped left!'});
-  }
- 
-  onSwipeRight(gestureState) {
-    this.setState({myText: 'You swiped right!'});
-  }
- 
-  onSwipe(gestureName, gestureState) {
-    const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
-    this.setState({gestureName: gestureName});
-    switch (gestureName) {
-      case SWIPE_UP:
-        this.setState({backgroundColor: 'red'});
-        break;
-      case SWIPE_DOWN:
-        this.setState({backgroundColor: 'green'});
-        break;
-      case SWIPE_LEFT:
-        this.setState({backgroundColor: 'blue'});
-        break;
-      case SWIPE_RIGHT:
-        this.setState({backgroundColor: 'yellow'});
-        break;
-    }
-  }
- 
-  render() {
- 
-    const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 80
-    };
- 
+
+  if (show) {
     return (
-      <GestureRecognizer 
-        onSwipe={(direction, state) => this.onSwipe(direction, state)}
-        onSwipeUp={(state) => this.onSwipeUp(state)}
-        onSwipeDown={(state) => this.onSwipeDown(state)}
-        onSwipeLeft={(state) => this.onSwipeLeft(state)}
-        onSwipeRight={(state) => this.onSwipeRight(state)}
-        config={config}
-        style={{
-          flex: 1,
-          backgroundColor: this.state.backgroundColor,
-          marginTop:200
-        }}
-        >
-        <Text>{this.state.myText}</Text>
-        <Text>onSwipe callback received gesture: {this.state.gestureName}</Text>
-      </GestureRecognizer>
+      <View style={StyleSheet.container}>
+        <Text style={styles.cardsText}>{messages.thankYou}</Text>
+        <Button
+          title={messages.countinue}
+          buttonStyle={myStyles.button}
+          onPress={countinueToMainPage}
+        />
+      </View>
     );
   }
+  else
+    return (
+      <View style={StyleSheet.container}>
+        <Text style={styles.cardsText}>{messages.prepareQuestions}</Text>
+         <Button
+          title={messages.skip}
+          buttonStyle={myStyles.button}
+          onPress={countinueToMainPage}
+        />
+      </View>
+    )
 }
- 
-export default SomeComponent;
+
+export default function FCQuestionere1(props) {
+  const [cards, setCards] = useState();
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchData();
+    }, 3000);
+
+    return function cleanup() {
+      console.log('CLEANUP');
+      setCards([]);
+    }
+  }, []);
+
+  async function fetchData() {
+    await fetch(helpers.getApi() + '/RandomWines?numOfWines=3',
+      {
+        method: 'GET',
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
+      })
+      .then(res => {
+        return res.json();
+      })
+      .then(
+        (result) => {
+          setCards(result);
+          console.log(cards);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+  }
+
+  const AddToDB = async (data) => {
+    //console.log("WINEID", data.wineId);
+    let newPrefrence =
+    {
+      "email":props.route.params.userInfo.email,
+      "PrefrenceID": 1,
+      "FreeText": data.wineId,
+      
+    };
+
+    await fetch(helpers.getApi() + '/UserPrefrence',
+      {
+        method: 'POST',
+        body: JSON.stringify(newPrefrence),
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
+      })
+      .then(res => {
+        return JSON.stringify(res);
+      }, (error) => {
+        alert(error);
+      })
+
+  }
+
+  function handleYup(card) {
+    console.log(`Yup for ${card.wineId}`);
+    AddToDB(card);
+    return true; // return false if you wish to cancel the action
+  }
+  function handleNope(card) {
+    console.log(`Nope for ${card.wineName}`);
+    return true;
+  }
+
+
+  return (
+    <View style={styles.container}>
+      {cards ? (
+        <SwipeCards
+          cards={cards}
+          renderCard={(cardData) => <Card data={cardData} />}
+          keyExtractor={(cardData) => String(cardData.wineId)}
+          renderNoMoreCards={() => <StatusCard  toShow={true}/>}
+          handleYup={handleYup}
+          handleNope={handleNope}
+          yupText={messages.know}
+          nopeText={messages.dontKnow}
+          showYup
+          showNope
+          containerStyle={{mrginBottom: 200}}
+        />
+      ) : (
+        <StatusCard text={messages.prepareQuestions} />
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  card: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: 250,
+    height: 250,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#691A1A'
+  },
+  cardsText: {
+    fontSize: 22,
+  },
+});

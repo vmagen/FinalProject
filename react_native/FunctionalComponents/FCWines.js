@@ -7,7 +7,9 @@ import { useNavigation } from '@react-navigation/native';
 
 function FCWines(props) {
   const [wines, setWines] = useState([]);
-  const navigation= useNavigation();
+  const [isLoaded, setisLoaded] = useState(false);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     getWines();
@@ -28,42 +30,54 @@ function FCWines(props) {
       .then(
         (result) => {
           setWines(result);
-        },
+
+        })
+      .then(
+        () => { setisLoaded(true) }
+        ,
         (error) => {
           console.log("err post=", error);
         });
+
   }
 
-  return (
-    <ScrollView
-      horizontal={true}
-      pagingEnabled={true}
-      style={styleSheet.scrollView}>
-      {wines.map(item => (
-        <TouchableOpacity
-        style={{ alignItems: 'center', padding: 10 }} 
-        key={item.wineId} 
-        onPress={
-          ()=>{
-            navigation.navigate('Login', {
-              screen: 'wine',
-              params:{
-                name:item.wineName,
-                image:item.wineImgPath,
-                id: item.wineId
+  if (isLoaded) {
+    return (
+      <ScrollView
+        horizontal={true}
+        pagingEnabled={true}
+        style={styleSheet.scrollView}>
+        {wines.map(item => (
+          <TouchableOpacity
+            style={{ alignItems: 'center', padding: 10 }}
+            key={item.wineId}
+            onPress={
+              () => {
+                navigation.navigate('Login', {
+                  screen: 'wine',
+                  params: {
+                    name: item.wineName,
+                    image: item.wineImgPath,
+                    id: item.wineId
+                  }
+                });
               }
-            });
-          }
-        }>
-          <Image
-            source={{ uri: item.wineImgPath }}
-            style={styleSheet.wine} />
-          <Text>{item.wineName}</Text>
-        </TouchableOpacity>
+            }>
+            <Image
+              source={{ uri: item.wineImgPath }}
+              style={styleSheet.wine} />
+            <Text>{item.wineName}</Text>
+          </TouchableOpacity>
 
-      ))}
-    </ScrollView>
+        ))}
+      </ScrollView>
 
-  )
+    )
+  }
+  else {
+    return (
+      <ActivityIndicator size='large' color='#691A1A' />
+    )
+  }
 }
 export default FCWines;

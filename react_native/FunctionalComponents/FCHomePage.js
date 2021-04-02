@@ -10,8 +10,10 @@ import { ScrollView } from 'react-native-gesture-handler'
 import headers from '../helpers/messages.json';
 import FCSearch from './FCSearch'
 import helpers from '../helpers/helperFunctions';
+import FCServices from './FCServices'
 
 export default function FCHomePage() {
+  
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -25,8 +27,8 @@ export default function FCHomePage() {
         <FCWineries />
         <Text h4 style={styleSheet.h4Text}>{headers.wines}</Text>
         <FCWines />
-        <Text h4 style={styleSheet.h4Text}>{headers.moreWines}</Text>
-        <FCWines />
+        <Text h4 style={styleSheet.h4Text}>{headers.services}</Text>
+        <FCServices />
       </View>
     </ScrollView>
   )

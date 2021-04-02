@@ -16,7 +16,9 @@ function FCFacebookLogin() {
     var info = new UserInfo(data.email, data.name, data.picture.data.url);
     AsyncStorage.setItem('login', JSON.stringify(info));
     console.log("INFO", info);
-    navigation.navigate('Home');
+    navigation.navigate('Login', { screen: 'questionere', params:{
+      userInfo: info
+    } });
   }
 
   async function fetchdata() {
