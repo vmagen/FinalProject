@@ -12,18 +12,7 @@ namespace webAPI.Models
     {
         public static List<RV_Winery> GetWinery(ArvinoDbContext db)
         {
-            return db.RV_Winery.Select(e => new RV_Winery()
-            {
-                wineryId = e.wineryId,
-                wineryName = e.wineryName,
-                wineryAddress = e.wineryAddress,
-                wineryEmail = e.wineryEmail,
-                phone = e.phone,
-                statusType = e.statusType,
-                IconImgPath = e.IconImgPath,
-                areaId = e.areaId ??0,
-                wineryManagerEmail = e.wineryManagerEmail
-            }).ToList();
+            return db.RV_Winery.ToList();
         }
 
         public static List<RV_Winery> GetWineryByArea(ArvinoDbContext db, int areaId)
