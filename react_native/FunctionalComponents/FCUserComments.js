@@ -17,10 +17,9 @@ export default function FCUserComments(props) {
         }
     }, [])
 
+    //https://proj.ruppin.ac.il/bgroup15/prod/api/WineComment/wineId?Id=5
     const getComments = () => {
-        console.log(helpers.getApi() + '/WineComment/' + props.wineId);
-        console.log(props.wineId);
-        fetch(helpers.getApi() + 'WineComment/' + props.wineId,
+        fetch(helpers.getApi() + 'WineComment/wineId?Id=' + props.wineId,
             {
                 method: 'GET',
                 headers: new Headers({
@@ -57,11 +56,11 @@ export default function FCUserComments(props) {
                             bottomDivider
                             style={{display:'flex',flex:1 }}
                         >
-                            <ListItem.Content>
+                            <ListItem.Content style={{flex:0.5, marginRight:50}}>
                                 <ListItem.Subtitle style={{ textAlign: 'right' }}>{helpers.ReturnDate(i.date)}</ListItem.Subtitle>
                                 <ListItem.Title style={{ textAlign: 'right' }}>{i.text}</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Content>
+                            <ListItem.Content style={{flex:0.5}}>
                             <Avatar
                                     source={{ uri: i.UserPitcure }}
                                     size='medium'

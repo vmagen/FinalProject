@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import {
   ScrollView,
 } from 'react-native';
-import { ListItem, Avatar, Icon } from 'react-native-elements';
+import { ListItem, Image, Icon } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import styleSheet from '../Pages/PageStyle';
 import { useNavigation } from '@react-navigation/native';
 
 const FCWineList = (props) => {
   const [wines, setWines] = useState([]);
-  const navigation= useNavigation();
+  const navigation = useNavigation();
 
   useEffect(() => {
     getWines();
@@ -17,7 +17,7 @@ const FCWineList = (props) => {
 
   const getWines = async () => {
     //api/Wine/category?categoryId=2
-    const test = await fetch(helpers.getApi() + '/wine/category?categoryId=' +props.categoryId);
+    const test = await fetch(helpers.getApi() + '/wine/category?categoryId=' + props.categoryId);
     const temp = await test.json();
     setWines(temp);
   };
@@ -34,11 +34,11 @@ const FCWineList = (props) => {
       {
         wines.map((wine, i) => (
           <ListItem
-            style={{display:'flex', justifyContent: 'flex-end' }}
             key={wine.wineId}
             bottomDivider
+            style={{flex:1}}
             onPress={
-              ()=>{
+              () => {
                 navigation.navigate('Login', {
                   screen: 'wine',
                   params: {
@@ -47,19 +47,20 @@ const FCWineList = (props) => {
                     content: wine.content,
                     id: wine.wineId,
                     price: wine.price,
-                    wineryImage:wine.wineryImage,
-                    areaCategoryName:wine.areaCategoryName,
-                    wineryName:wine.wineryName
+                    wineryImage: wine.wineryImage,
+                    areaCategoryName: wine.areaCategoryName,
+                    wineryName: wine.wineryName
                   }
                 });
               }
             }>
-            <ListItem.Content>
-              <ListItem.Title>{wine.wineName}</ListItem.Title>
+            <ListItem.Content style={{ flex: 0.5, alignContent:'flex-end'}}>
+              <ListItem.Title style={{textAlign:'right'}}>{wine.wineName}</ListItem.Title>
             </ListItem.Content>
-            <ListItem.Content>
-              <Avatar
+            <ListItem.Content style={{ flex: 0.5 }}>
+              <Image
                 source={{ uri: wine.wineImgPath }}
+                style={styleSheet.winery}
               />
             </ListItem.Content>
           </ListItem>

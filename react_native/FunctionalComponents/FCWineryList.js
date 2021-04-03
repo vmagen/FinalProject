@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet,
   ScrollView,
 } from 'react-native';
-import { ListItem, Avatar, Icon } from 'react-native-elements';
+import { ListItem, Image, Icon } from 'react-native-elements';
 import helpers from '../helpers/helperFunctions';
 import { useNavigation } from '@react-navigation/native';
-
+import styleSheet from '../Pages/PageStyle';
 
 const FCWineryList = (props) => {
   const [wineries, setWineries] = useState([]);
@@ -36,7 +35,7 @@ const FCWineryList = (props) => {
       {
         wineries.map((winery, i) => (
           <ListItem
-            style={{ justifyContent: 'flex-end' }}
+            style={{ flex:1 }}
             key={winery.wineryId}
             bottomDivider
             onPress={
@@ -51,12 +50,13 @@ const FCWineryList = (props) => {
                 });
               }
             }>
-            <ListItem.Content>
+            <ListItem.Content style={{flex:0.5}}>
               <ListItem.Title>{winery.wineryName}</ListItem.Title>
             </ListItem.Content>
-            <ListItem.Content>
-              <Avatar
+            <ListItem.Content style={{flex:0.5}}>
+            <Image
                 source={{ uri: winery.IconImgPath }}
+                style={styleSheet.winery}
               />
             </ListItem.Content>
           </ListItem>
