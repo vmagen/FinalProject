@@ -90,7 +90,7 @@ export default StyleSheet.create({
     height: 44,
     borderRadius: 44 / 2,
   },
-  textButton:{
+  textButton: {
     textAlign: 'center',
     padding: 10,
     fontWeight: 'bold'
@@ -101,7 +101,7 @@ export default StyleSheet.create({
   inButtonInActive: {
     color: 'white',
   },
-  toggleBox:{
+  toggleBox: {
     width: 172,
     height: 40,
     borderStyle: 'solid',
@@ -138,7 +138,7 @@ export default StyleSheet.create({
     paddingVertical: 50,
     paddingHorizontal: 30
   },
-  avatar:{
+  avatar: {
     borderWidth: 4,
     shadowColor: "#000",
     shadowOffset: {
@@ -149,10 +149,39 @@ export default StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 6,
   },
-  avatarReg:{
+  avatarReg: {
     borderColor: '#691A1A',
   },
   avatarGold: {
     borderColor: '#FFD700',
   },
+  wineryHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    borderStyle: 'solid',
+    borderColor: 'black',
+    borderWidth: 1,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    elevation: 6,
+  },
+  wineRate: {
+    height:100,
+    width:100,
+    borderRadius: 50,
+    borderWidth: 6,
+    borderColor: '#691A1A',
+    color:'#691A1A',
+    borderStyle: 'solid',
+    marginLeft:40,
+    fontSize:30,
+    textAlign:'center',
+    textAlignVertical:'center',
+    paddingTop:25,
+  }
 });

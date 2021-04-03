@@ -14,6 +14,19 @@ import FCServices from './FCServices'
 
 export default function FCHomePage() {
   
+  
+  useEffect(() => {
+    setTimeout(() => {
+      //fetchData();
+      console.log('HOME PAGE useEFECT');
+
+    }, 3000);
+
+    return function cleanup() {
+      console.log('HOME PAGE CLEANUP');
+      //setCards([]);
+    }
+  }, []);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

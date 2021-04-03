@@ -58,7 +58,12 @@ function FCWines(props) {
                   params: {
                     name: item.wineName,
                     image: item.wineImgPath,
-                    id: item.wineId
+                    content: item.content,
+                    id: item.wineId,
+                    price: item.price,
+                    wineryImage:item.wineryImage,
+                    areaCategoryName:item.areaCategoryName,
+                    wineryName:item.wineryName
                   }
                 });
               }

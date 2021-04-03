@@ -44,7 +44,12 @@ const FCWineList = (props) => {
                   params: {
                     name: wine.wineName,
                     image: wine.wineImgPath,
-                    id: wine.wineId
+                    content: wine.content,
+                    id: wine.wineId,
+                    price: wine.price,
+                    wineryImage:wine.wineryImage,
+                    areaCategoryName:wine.areaCategoryName,
+                    wineryName:wine.wineryName
                   }
                 });
               }
