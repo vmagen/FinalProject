@@ -14,39 +14,41 @@ export default class CCActivityIndicator extends Component {
   }
 
   componentDidMount() {
-    let that = this;
-    setTimeout(function () { that.setState({ timePassed: true }) }, 4000);
-    this._unsubscribeFocus = this.props.navigation.addListener('focus', (payload) => {
-      console.log('will focus CCActivity', payload);
 
+    this._unsubscribeFocus = this.props.navigation.addListener('focus', (payload) => {
+      let that = this;
+      setTimeout(function () { that.setState({ timePassed: true }) }, 4000);
+      console.log("enter homepage")
     });
     this._unsubscribeBlur = this.props.navigation.addListener('blur', (payload) => {
-      console.log('will blur CCActivity', payload)
+      this.setState({ timePassed: false })
+      console.log("exit homepage")
+
     });
   }
 
   componentWillUnmount() {
     this._unsubscribeFocus();
     this._unsubscribeBlur();
-    this.setState({ timePassed: true });
   }
 
   goToHomePage = () => {
     this.props.navigation.navigate('Home')
   }
+
   render() {
     if (!this.state.timePassed) {
       return (
         <View style={[styleSheet.container, {
-              flexDirection: "row",
-              justifyContent: "space-around",
-              padding: 10
+          flexDirection: "row",
+          justifyContent: "space-around",
+          padding: 10
         }]}>
           <ActivityIndicator
             size='large'
-            color="#691A1A" 
+            color="#691A1A"
             style={{
-              
+
             }} />
         </View>)
     }

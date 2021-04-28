@@ -9,6 +9,7 @@ import FCWine from '../FunctionalComponents/FCWine';
 import FCWinery from '../FunctionalComponents/FCWinery';
 import CCActivityIndicator from '../Componenets/CCActivityIndicator';
 import FCQuestionere1 from '../FunctionalComponents/FCQuestionere1';
+import CCGaleryUpload from '../Componenets/CCGalleryUpload';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,8 @@ const Pages = () => (
         <Stack.Screen name="wine" component={FCWine}/>
         <Stack.Screen name="winery" component={FCWinery}/>
         <Stack.Screen name="waitPage" component={CCActivityIndicator}/>
+        <Stack.Screen name="Gallery" component={CCGaleryUpload}/>
+
         
     </Stack.Navigator>
 );

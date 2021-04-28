@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { GiftedChat , Actions} from 'react-native-gifted-chat'
 import helpers from '../helpers/helperFunctions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 export function FCChat(props) {
   const [messages, setMessages] = useState([]);
@@ -134,6 +135,7 @@ export const renderActions = (props) => (
     options={{
       'Choose From Library': () => {
         console.log('Choose From Library');
+
       },
       Cancel: () => {
         console.log('Cancel');

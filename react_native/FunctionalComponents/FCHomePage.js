@@ -13,20 +13,8 @@ import helpers from '../helpers/helperFunctions';
 import FCServices from './FCServices'
 
 export default function FCHomePage() {
+  const [state, setState] = useState(true) 
   
-  
-  useEffect(() => {
-    setTimeout(() => {
-      //fetchData();
-      console.log('HOME PAGE useEFECT');
-
-    }, 3000);
-
-    return function cleanup() {
-      console.log('HOME PAGE CLEANUP');
-      //setCards([]);
-    }
-  }, []);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

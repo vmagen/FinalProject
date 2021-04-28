@@ -2,9 +2,9 @@
   "expoServerPort": 19000,
   "packagerPort": 19000,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://bm-wzz.vmagen.react-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.bm-wzz.vmagen.react-native.exp.direct",
+  "ngrokPid": 28664,
   "webpackServerPort": null,
   "devToolsPort": 19002
 }

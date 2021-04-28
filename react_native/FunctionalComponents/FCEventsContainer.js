@@ -45,7 +45,7 @@ export default function FCEventsContainer() {
 
     }
     function getAllEvents() {
-        fetch(helpers.getApi() + '/Event',
+        fetch(helpers.getApi() + '/Event/GetAllEvents',
             {
                 method: 'GET',
                 headers: new Headers({

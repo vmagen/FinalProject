@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Text, View, Button, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform, StyleSheet } from 'react-native';
 import styleSheet from '../Pages/PageStyle'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,6 +7,14 @@ import FCHeader from './FCHeader';
 
 const FCProfile = () => {
     const navigation = useNavigation();
+    const [state, setState] = useState(false)    
+    
+    useEffect(() => {
+        setState(!state)
+        return () => {
+            setState(!state)
+        }
+    }, [])
 
     const logOut = async () => {
        const temp= await AsyncStorage.removeItem('login');

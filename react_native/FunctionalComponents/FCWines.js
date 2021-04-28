@@ -16,7 +16,7 @@ function FCWines(props) {
   }, []);
 
   function getWines() {
-    fetch(helpers.getApi() + '/Wine',
+    fetch(helpers.getApi() + '/Wine/GetAllWines',
       {
         method: 'GET',
         headers: new Headers({

@@ -11,7 +11,7 @@ function FCEventsScrollView() {
     }, []);
 
     function getEvents() {
-        fetch(helpers.getApi() + '/Event',
+        fetch(helpers.getApi() + '/Event/GetAllEvents',
             {
                 method: 'GET',
                 headers: new Headers({

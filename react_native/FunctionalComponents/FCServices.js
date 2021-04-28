@@ -30,6 +30,7 @@ function FCServices(props) {
       })
       .then(
         (result) => {
+          
           setServices(result);
 
         })

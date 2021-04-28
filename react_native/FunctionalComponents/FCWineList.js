@@ -17,7 +17,7 @@ const FCWineList = (props) => {
 
   const getWines = async () => {
     //api/Wine/category?categoryId=2
-    const test = await fetch(helpers.getApi() + '/wine/category?categoryId=' + props.categoryId);
+    const test = await fetch(helpers.getApi() + '/Wine/Get?CategoryId=' + props.categoryId);
     const temp = await test.json();
     setWines(temp);
   };

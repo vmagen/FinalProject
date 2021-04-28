@@ -31,7 +31,7 @@ function StatusCard({ toShow }) {
   const navigation = useNavigation();
 
   const countinueToMainPage = () => {
-    navigation.navigate('Home');
+    navigation.push('waitPage');
   }
 
   if (show) {

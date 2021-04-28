@@ -39,7 +39,7 @@ export default function FCQuestionere() {
   }
 
   const goToHomePage = () => {
-    navigation.navigate('Home');
+    navigation.push('waitPage');
   }
 
 
